@@ -1,0 +1,127 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Users</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    @* <script src="https://kit.fontawesome.com/3f526b446a.js" crossorigin="anonymous"></script> *@
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
+    <style>
+        /* navbar starts from here */
+
+        .navbar-link-custom-text {
+            font-weight: 400;
+            color: black;
+        }
+
+        .nav-item {
+            position: relative;
+        }
+
+            .nav-item .nav-link {
+                position: relative;
+            }
+
+                .nav-item .nav-link::after {
+                    content: '';
+                    position: absolute;
+                    width: 100%;
+                    transform: scaleX(0);
+                    height: 2px;
+                    bottom: -5px;
+                    left: 0;
+                    background-color: #0087ca;
+                    transform-origin: bottom right;
+                    transition: transform 0.25s ease-in-out;
+                }
+
+                .nav-item .nav-link:hover::after {
+                    transform: scaleX(1);
+                    transform-origin: bottom left;
+                }
+    </style>
+
+    @* <link rel="stylesheet" href="~/Users.styles.css" asp-append-version="true" /> *@
+</head>
+<body>
+    @if ((TempData["isAdmin"] != null && Convert.ToBoolean(TempData["isAdmin"]) == true) || (TempData["isUser"] != null && Convert.ToBoolean(TempData["isUser"]) == true))
+    {
+        TempData.Keep("isAdmin");
+        TempData.Keep("isUser");
+        <header>
+            <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark bg-dark border-bottom box-shadow" style="margin-bottom:1.5rem;">
+                <div class="container">
+                    <button class="navbar-brand bg-transparent border-0" disabled asp-area="" asp-page="/">ASP TASK</button>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                            aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                        <ul class="navbar-nav flex-grow-1">
+                            @if (TempData["isAdmin"] != null && Convert.ToBoolean(TempData["isAdmin"]) == true)
+                            {
+                                TempData.Keep("isAdmin");
+                                <li class="nav-item">
+                                    <a class="nav-link navbar-link-custom-text" asp-area="" asp-page="/UserFolder/UserIndex">Users</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link navbar-link-custom-text" asp-area="" asp-page="/UserFolder/CreateUsers">Create</a>
+                                </li>
+                            }
+                            @if ((TempData["isAdmin"] != null && Convert.ToBoolean(TempData["isAdmin"]) == true) || (TempData["isUser"] != null && Convert.ToBoolean(TempData["isUser"]) == true))
+                            {
+                                TempData.Keep("isAdmin");
+                                TempData.Keep("isUser");
+                                <li class="ms-auto">
+                                    <a class="btn btn-outline-warning" href="/Index">
+                                        <svg xmlns="http://www.w3.org/2000/svg" height="14" width="14" viewBox="0 0 512 512"><path fill="currentColor" d="M320 0c-17.7 0-32 14.3-32 32s14.3 32 32 32h82.7L201.4 265.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L448 109.3V192c0 17.7 14.3 32 32 32s32-14.3 32-32V32c0-17.7-14.3-32-32-32H320zM80 32C35.8 32 0 67.8 0 112V432c0 44.2 35.8 80 80 80H400c44.2 0 80-35.8 80-80V320c0-17.7-14.3-32-32-32s-32 14.3-32 32V432c0 8.8-7.2 16-16 16H80c-8.8 0-16-7.2-16-16V112c0-8.8 7.2-16 16-16H192c17.7 0 32-14.3 32-32s-14.3-32-32-32H80z" /></svg>
+                                        Logout
+                                    </a>
+                                </li>
+                            }
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </header>
+    }
+    <div class="loader-div" id="loader-div">
+        <div class="dot-spinner">
+            <div class="dot-spinner__dot"></div>
+            <div class="dot-spinner__dot"></div>
+            <div class="dot-spinner__dot"></div>
+            <div class="dot-spinner__dot"></div>
+            <div class="dot-spinner__dot"></div>
+            <div class="dot-spinner__dot"></div>
+            <div class="dot-spinner__dot"></div>
+            <div class="dot-spinner__dot"></div>
+        </div>
+        @* <span class="loader"></span> *@
+    </div>
+    <div class="container-custom">
+        <main role="main" class="">
+            @RenderBody()
+        </main>
+    </div>
+
+    @* <footer class="bg-dark border-top footer">
+    <div class="container text-light">
+    &copy; 2024 - Users - <a class="text-light" asp-area="" asp-page="/Index">Home</a>  
+    </div>
+    </footer> *@
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            hideLoader();
+        });
+    </script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

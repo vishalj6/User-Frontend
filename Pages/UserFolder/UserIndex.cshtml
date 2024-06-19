@@ -1,0 +1,393 @@
+﻿@page
+@model UsersProject.Pages.UserFolder.UserIndexModel;
+@{
+    ViewData["Title"] = "Index";
+}
+
+
+@if (Model.pageModel.AllUsers.Count == 0)
+{
+    <div class="d-flex justify-content-center align-items-center gap-2">
+        <div class="">
+            <h2>
+                <svg xmlns="http://www.w3.org/2000/svg" height="25" width="25" viewBox="0 0 512 600"><path fill="currentColor" d="M367.2 412.5L99.5 144.8C77.1 176.1 64 214.5 64 256c0 106 86 192 192 192c41.5 0 79.9-13.1 111.2-35.5zm45.3-45.3C434.9 335.9 448 297.5 448 256c0-106-86-192-192-192c-41.5 0-79.9 13.1-111.2 35.5L412.5 367.2zM0 256a256 256 0 1 1 512 0A256 256 0 1 1 0 256z" /></svg>
+                No Data Available
+            </h2>
+
+            <div class="d-flex justify-content-center align-items-center gap-2">
+                <a asp-page="./CreateUsers" class="btn btn-outline-success flex-grow-1">
+                    <svg xmlns="http://www.w3.org/2000/svg" height="14" width="15.75" viewBox="0 0 576 512"><path fill="currentColor" d="M512 80c8.8 0 16 7.2 16 16V416c0 8.8-7.2 16-16 16H64c-8.8 0-16-7.2-16-16V96c0-8.8 7.2-16 16-16H512zM64 32C28.7 32 0 60.7 0 96V416c0 35.3 28.7 64 64 64H512c35.3 0 64-28.7 64-64V96c0-35.3-28.7-64-64-64H64zM208 256a64 64 0 1 0 0-128 64 64 0 1 0 0 128zm-32 32c-44.2 0-80 35.8-80 80c0 8.8 7.2 16 16 16H304c8.8 0 16-7.2 16-16c0-44.2-35.8-80-80-80H176zM376 144c-13.3 0-24 10.7-24 24s10.7 24 24 24h80c13.3 0 24-10.7 24-24s-10.7-24-24-24H376zm0 96c-13.3 0-24 10.7-24 24s10.7 24 24 24h80c13.3 0 24-10.7 24-24s-10.7-24-24-24H376z" /></svg>
+                    Create
+                </a>
+                <a href="?currentPageIndex=@(Model.currentPageIndex)&DropDownLimit=@Model.DropDownLimit" class="btn btn-outline-light flex-grow-1">
+                    <svg xmlns="http://www.w3.org/2000/svg" height="14" width="14" viewBox="0 0 512 512"><path fill="currentColor" d="M105.1 202.6c7.7-21.8 20.2-42.3 37.8-59.8c62.5-62.5 163.8-62.5 226.3 0L386.3 160H352c-17.7 0-32 14.3-32 32s14.3 32 32 32H463.5c0 0 0 0 0 0h.4c17.7 0 32-14.3 32-32V80c0-17.7-14.3-32-32-32s-32 14.3-32 32v35.2L414.4 97.6c-87.5-87.5-229.3-87.5-316.8 0C73.2 122 55.6 150.7 44.8 181.4c-5.9 16.7 2.9 34.9 19.5 40.8s34.9-2.9 40.8-19.5zM39 289.3c-5 1.5-9.8 4.2-13.7 8.2c-4 4-6.7 8.8-8.1 14c-.3 1.2-.6 2.5-.8 3.8c-.3 1.7-.4 3.4-.4 5.1V432c0 17.7 14.3 32 32 32s32-14.3 32-32V396.9l17.6 17.5 0 0c87.5 87.4 229.3 87.4 316.7 0c24.4-24.4 42.1-53.1 52.9-83.7c5.9-16.7-2.9-34.9-19.5-40.8s-34.9 2.9-40.8 19.5c-7.7 21.8-20.2 42.3-37.8 59.8c-62.5 62.5-163.8 62.5-226.3 0l-.1-.1L125.6 352H160c17.7 0 32-14.3 32-32s-14.3-32-32-32H48.4c-1.6 0-3.2 .1-4.8 .3s-3.1 .5-4.6 1z" /></svg>
+                    Clear Search
+                </a>
+            </div>
+        </div>
+    </div>
+
+}
+else
+{
+
+    <form method="get" id="myForm">
+        <div>
+            @* <input type="hidden" name="dropDownInput" id="dropDownInput" value="@Model.DropDownLimit" onchange="this.form.submit()"  /> *@
+
+            <div class="row mb-3" style="row-gap:0.8rem">
+                <div class="col-sm-12 col-md-3">
+                    <label for="firstName" class="">Firstname</label>
+                    <input type="text" class="custom-dark-input" id="firstName" asp-for="@Model.firstName" placeholder="First Name...">
+                </div>
+                <div class="col-sm-12 col-md-3">
+                    <label for="lastName" class="">Lastname</label>
+                    <input type="text" class="custom-dark-input" id="lastName" asp-for="@Model.lastName" placeholder="Last Name...">
+                </div>
+                <div class="col-sm-12 col-md-3">
+                    <label for="phoneNo" class="">Phone no</label>
+                    <input type="text" class="custom-dark-input" id="phoneNo" asp-for="@Model.phoneNo" placeholder="Phone no...">
+                </div>
+                <div class="col-sm-12 col-md-3">
+                    <label for="Email" class="">Email</label>
+                    <input type="text" class="custom-dark-input" id="Email" asp-for="@Model.Email" placeholder="Email...">
+                </div>
+                @* <div class="col-sm-12 col-md-3">
+            <label for="Country" class="">Country</label>
+            <select id="Country" name="Country" onchange="this.form.submit()" asp-for="@Model.Country" asp-items="Model.CountryList" class="custom-dark-input" style="outline:none;background-color:#1e1e1e29;">
+            <option disabled selected>Select a Country</option>
+            </select>
+            </div> *@
+                @* <div class="col-sm-12 col-md-3">
+            <label for="State" class="">State</label>
+            <select id="State" name="State" onchange="this.form.submit()" asp-for="@Model.State" asp-items="Model.StateList" class="custom-dark-input" style="outline:none;background-color:#1e1e1e29;">
+            <option disabled selected>Select a State</option>
+            </select>
+            </div> *@
+                <input type="hidden" id="Country" asp-for="@Model.Country" />
+                <input type="hidden" id="State" asp-for="@Model.State" />
+                <input type="hidden" id="City" asp-for="@Model.City" />
+                @* <div class="col-sm-12 col-md-3">
+            <label for="City" class="">City</label>
+            <select id="City" name="City" onchange="this.form.submit()" asp-for="@Model.City" asp-items="Model.CityList" class="custom-dark-input" style="outline:none;background-color:#1e1e1e29;">
+            <option disabled selected>Select a city</option>
+            </select>
+            </div> *@
+            </div>
+            <div class="d-flex justify-content-center align-items-center gap-2 mb-2">
+                <button type="submit" class="btn btn-outline-info" style="min-width:100px">
+                    <svg xmlns="http://www.w3.org/2000/svg" height="14" width="14" viewBox="0 0 512 512"><path fill="currentColor" d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352a144 144 0 1 0 0-288 144 144 0 1 0 0 288z" /></svg>
+                    Search
+                </button>
+                <a href="?currentPageIndex=@(Model.currentPageIndex)&DropDownLimit=@Model.DropDownLimit" class="btn btn-outline-light" style="min-width:100px">
+                    <svg xmlns="http://www.w3.org/2000/svg" height="14" width="14" viewBox="0 0 512 512"><path fill="currentColor" d="M105.1 202.6c7.7-21.8 20.2-42.3 37.8-59.8c62.5-62.5 163.8-62.5 226.3 0L386.3 160H352c-17.7 0-32 14.3-32 32s14.3 32 32 32H463.5c0 0 0 0 0 0h.4c17.7 0 32-14.3 32-32V80c0-17.7-14.3-32-32-32s-32 14.3-32 32v35.2L414.4 97.6c-87.5-87.5-229.3-87.5-316.8 0C73.2 122 55.6 150.7 44.8 181.4c-5.9 16.7 2.9 34.9 19.5 40.8s34.9-2.9 40.8-19.5zM39 289.3c-5 1.5-9.8 4.2-13.7 8.2c-4 4-6.7 8.8-8.1 14c-.3 1.2-.6 2.5-.8 3.8c-.3 1.7-.4 3.4-.4 5.1V432c0 17.7 14.3 32 32 32s32-14.3 32-32V396.9l17.6 17.5 0 0c87.5 87.4 229.3 87.4 316.7 0c24.4-24.4 42.1-53.1 52.9-83.7c5.9-16.7-2.9-34.9-19.5-40.8s-34.9 2.9-40.8 19.5c-7.7 21.8-20.2 42.3-37.8 59.8c-62.5 62.5-163.8 62.5-226.3 0l-.1-.1L125.6 352H160c17.7 0 32-14.3 32-32s-14.3-32-32-32H48.4c-1.6 0-3.2 .1-4.8 .3s-3.1 .5-4.6 1z" /></svg>
+                    Clear
+                </a>
+                @* <button type="reset" class="btn btn-secondary" style="min-width:150px">Clear</button> *@
+            </div>
+
+            <div class="d-flex justify-content-between mb-3 align-items-center gap-2">
+                <div>
+                    <label for="dropDownInput">Rows per Page</label>
+                    <select class="text-dark" id="dropDownInput" name="DropDownLimit" onchange="this.form.submit()" asp-for="@Model.DropDownLimit">
+                        <option value="3">3</option>
+                        <option value="5">5</option>
+                        <option value="10">10</option>
+                        <option value="20">20</option>
+                    </select>
+                </div>
+                <div>
+                    <a type="button" class="btn btn-outline-danger" asp-page="./DeleteAll">
+                        Delete All ☠
+                    </a>
+                </div>
+            </div>
+        </div>
+    </form>
+
+
+    <div class="table-responsive table-responsive-custom">
+
+        <table class="table table-dark table-striped table-hover w-100 text-light mb-1">
+            <thead>
+                <tr>
+                    <th>
+                        Id
+                        @* @Html.DisplayNameFor(model => model.pageModel.AllUsers[0].user_id) *@
+                    </th>
+                    <th>
+                        First Name
+                        @* @Html.DisplayNameFor(model => model.pageModel.AllUsers[0].First_name) *@
+                    </th>
+                    <th>
+                        Last Name
+                        @* @Html.DisplayNameFor(model => model.pageModel.AllUsers[0].Last_name) *@
+                    </th>
+                    <th>
+                        Phone no
+                        @* @Html.DisplayNameFor(model => model.pageModel.AllUsers[0].Phone_no) *@
+                    </th>
+                    <th>
+                        Email
+                        @* @Html.DisplayNameFor(model => model.pageModel.AllUsers[0].country_name) *@
+                    </th>
+                    <th class="px-1">
+                        <select id="CountryFake" name="CountryFake" style="font-weight:bold;width:100%;border:none;background-color:transparent;outline:none;color:#fff;" onchange="submitCSCTRY()" asp-for="@Model.Country" asp-items="Model.CountryList">
+                            <option selected>Country</option>
+                        </select>
+                    </th>
+                    <th class="px-1">
+                        <select id="StateFake" name="StateFake" style="font-weight:bold;width:100%;border:none;background-color:transparent;outline:none;color:#fff;" onchange="submitCSCTRY()" asp-for="@Model.State" asp-items="Model.StateList">
+                            <option selected>State</option>
+                        </select>
+                    </th>
+                    <th class="px-1">
+                        <select id="CityFake" name="CityFake" style="font-weight:bold;width:100%;border:none;background-color:transparent;outline:none;color:#fff;" onchange="submitCSCTRY()" asp-for="@Model.City" asp-items="Model.CityList">
+                            <option selected>City</option>
+                        </select>
+                    </th>
+                    <th>
+                        Address
+                    </th>
+
+                    <th class="edd-btns-td">
+                        Option
+                    </th>
+
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model.pageModel.AllUsers)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.userID)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.firstName)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.lastName)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.phoneNumber)
+                        </td>
+                        <td class="td-overflow">
+                            @Html.DisplayFor(modelItem => item.email)
+                        </td>
+                        <td class="td-overflow">
+                            @Html.DisplayFor(modelItem => item.country)
+                        </td>
+                        <td class="td-overflow">
+                            @Html.DisplayFor(modelItem => item.state)
+                        </td>
+                        <td class="td-overflow">
+                            @Html.DisplayFor(modelItem => item.city)
+                        </td>
+                        <td class="td-overflow">
+                            @Html.DisplayFor(modelItem => item.address)
+                        </td>
+
+                        <td class="edd-btns-td">
+                            <div class="edd-btns">
+                                <a asp-page="./EditUser" class="btn btn-primary rounded" asp-route-id="@item.userID">
+                                    @{
+                                        // <i class="fa-solid fa-pen-to-square" aria-hidden="true"></i>
+                                    }
+                                    <svg xmlns="http://www.w3.org/2000/svg" height="18" width="20.5" viewBox="0 0 640 512"><path fill="currentColor" d="M224 256A128 128 0 1 0 224 0a128 128 0 1 0 0 256zm-45.7 48C79.8 304 0 383.8 0 482.3C0 498.7 13.3 512 29.7 512H322.8c-3.1-8.8-3.7-18.4-1.4-27.8l15-60.1c2.8-11.3 8.6-21.5 16.8-29.7l40.3-40.3c-32.1-31-75.7-50.1-123.9-50.1H178.3zm435.5-68.3c-15.6-15.6-40.9-15.6-56.6 0l-29.4 29.4 71 71 29.4-29.4c15.6-15.6 15.6-40.9 0-56.6l-14.4-14.4zM375.9 417c-4.1 4.1-7 9.2-8.4 14.9l-15 60.1c-1.4 5.5 .2 11.2 4.2 15.2s9.7 5.6 15.2 4.2l60.1-15c5.6-1.4 10.8-4.3 14.9-8.4L576.1 358.7l-71-71L375.9 417z" /></svg>
+                                </a>
+                                <a asp-page="./UserDetails" class="btn btn-success rounded" asp-route-id="@item.userID">
+                                    <svg xmlns="http://www.w3.org/2000/svg" height="18" width="20.5" viewBox="0 0 576 512"><path fill="currentColor" d="M288 32c-80.8 0-145.5 36.8-192.6 80.6C48.6 156 17.3 208 2.5 243.7c-3.3 7.9-3.3 16.7 0 24.6C17.3 304 48.6 356 95.4 399.4C142.5 443.2 207.2 480 288 480s145.5-36.8 192.6-80.6c46.8-43.5 78.1-95.4 93-131.1c3.3-7.9 3.3-16.7 0-24.6c-14.9-35.7-46.2-87.7-93-131.1C433.5 68.8 368.8 32 288 32zM144 256a144 144 0 1 1 288 0 144 144 0 1 1 -288 0zm144-64c0 35.3-28.7 64-64 64c-7.1 0-13.9-1.2-20.3-3.3c-5.5-1.8-11.9 1.6-11.7 7.4c.3 6.9 1.3 13.8 3.2 20.7c13.7 51.2 66.4 81.6 117.6 67.9s81.6-66.4 67.9-117.6c-11.1-41.5-47.8-69.4-88.6-71.1c-5.8-.2-9.2 6.1-7.4 11.7c2.1 6.4 3.3 13.2 3.3 20.3z" /></svg>
+                                </a>
+                                <a asp-page="./DeleteUser" class="btn btn-danger rounded" asp-route-id="@item.userID">
+                                    <svg xmlns="http://www.w3.org/2000/svg" height="18" width="20.5" viewBox="0 0 448 512"><path fill="currentColor" d="M163.8 0H284.2c12.1 0 23.2 6.8 28.6 17.7L320 32h96c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 96 0 81.7 0 64S14.3 32 32 32h96l7.2-14.3C140.6 6.8 151.7 0 163.8 0zM32 128H416V448c0 35.3-28.7 64-64 64H96c-35.3 0-64-28.7-64-64V128zm192 64c-6.4 0-12.5 2.5-17 7l-80 80c-9.4 9.4-9.4 24.6 0 33.9s24.6 9.4 33.9 0l39-39V408c0 13.3 10.7 24 24 24s24-10.7 24-24V273.9l39 39c9.4 9.4 24.6 9.4 33.9 0s9.4-24.6 0-33.9l-80-80c-4.5-4.5-10.6-7-17-7z" /></svg>
+                                </a>
+                            </div>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+
+
+        <div class="pagination-counting me-auto position-absolute left-0">
+            <span>
+                @(Model.DropDownLimit * (Model.currentPageIndex - 1) + 1)
+            </span>
+            @if (Model.DropDownLimit * (Model.currentPageIndex) < Model.pageModel.total_users)
+            {
+                <span>- @(Model.DropDownLimit * (Model.currentPageIndex))</span>
+            }
+            else
+            {
+                <span>- @(Model.pageModel.total_users)</span>
+            }
+            of @(Model.pageModel.total_users)
+        </div>
+
+    </div>
+
+    <div class="pagination mb-3">
+        @if (Model.currentPageIndex > 1)
+        {
+            <a href="?currentPageIndex=@(Model.currentPageIndex - 1)&firstName=@Model.firstName&lastName=@Model.lastName&phoneNo=@Model.phoneNo&Email=@Model.Email&Country=@Model.Country&State=@Model.State&City=@Model.City&DropDownLimit=@Model.DropDownLimit" class="prev-next-active prev-button">&lt;&lt;</a>
+        }
+        else
+        {
+            <button disabled class="prev-next-inactive prev-button" onclick="void(0)">&lt;&lt; </button>
+        }
+
+        @if (Model.pageModel.total_pages < 3)
+        {
+            @for (int i = 1; i <= Model.pageModel.total_pages; i++)
+            {
+                @if (i != Model.currentPageIndex)
+                {
+                    <a href="?currentPageIndex=@i&firstName=@Model.firstName&lastName=@Model.lastName&phoneNo=@Model.phoneNo&Email=@Model.Email&Country=@Model.Country&State=@Model.State&City=@Model.City&DropDownLimit=@Model.DropDownLimit" class="pagination-inactive">@i</a>
+                }
+                else
+                {
+                    <span class="pagination-active">@i</span>
+                }
+            }
+        }
+        else
+        {
+            int RightMost = Math.Max(2, Model.currentPageIndex == Model.pageModel.total_pages ? @Model.currentPageIndex - 2 : @Model.currentPageIndex - 1);
+            int LeftMost = Math.Min(Model.pageModel.total_pages - 1, @Model.currentPageIndex == 1 ? @Model.currentPageIndex + 2 : @Model.currentPageIndex + 1);
+            @if (Model.currentPageIndex != 1)
+            {
+                <a href="?currentPageIndex=1&firstName=@Model.firstName&lastName=@Model.lastName&phoneNo=@Model.phoneNo&Email=@Model.Email&Country=@Model.Country&State=@Model.State&City=@Model.City&DropDownLimit=@Model.DropDownLimit" class="pagination-inactive">1</a>
+            }
+            else
+            {
+                <span class="pagination-active">1</span>
+            }
+            @if (RightMost >= 3)
+            {
+                @if (RightMost >= 4)
+                {
+                    <a href="?currentPageIndex=@(Model.currentPageIndex - 3)&firstName=@Model.firstName&lastName=@Model.lastName&phoneNo=@Model.phoneNo&Email=@Model.Email&Country=@Model.Country&State=@Model.State&City=@Model.City&DropDownLimit=@Model.DropDownLimit" class="pagination-inactive">..</a>
+                }
+                else
+                {
+                    <a href="?currentPageIndex=@(Model.currentPageIndex - 2)&firstName=@Model.firstName&lastName=@Model.lastName&phoneNo=@Model.phoneNo&Email=@Model.Email&Country=@Model.Country&State=@Model.State&City=@Model.City&DropDownLimit=@Model.DropDownLimit" class="pagination-inactive">..</a>
+                }
+            }
+            else
+            {
+                <button class="pagination-inactive dot-dot-inactive" disabled onclick="">..</button>
+            }
+            @for (int i = RightMost; i <= LeftMost; i++)
+            {
+                @if (i != Model.currentPageIndex)
+                {
+                    <a href="?currentPageIndex=@i&firstName=@Model.firstName&lastName=@Model.lastName&phoneNo=@Model.phoneNo&Email=@Model.Email&Country=@Model.Country&State=@Model.State&City=@Model.City&DropDownLimit=@Model.DropDownLimit" class="pagination-inactive">@i</a>
+                }
+                else
+                {
+                    <span class="pagination-active">@i</span>
+                }
+            }
+            @if (LeftMost <= Model.pageModel.total_pages - 2)
+            {
+                @if (Model.currentPageIndex + 3 <= Model.pageModel.total_pages)
+                {
+                    <a href="?currentPageIndex=@(Model.currentPageIndex + 3)&firstName=@Model.firstName&lastName=@Model.lastName&phoneNo=@Model.phoneNo&Email=@Model.Email&Country=@Model.Country&State=@Model.State&City=@Model.City&DropDownLimit=@Model.DropDownLimit" class="pagination-inactive">..</a>
+                }
+                else if (Model.currentPageIndex + 2 <= Model.pageModel.total_pages)
+                {
+                    <a href="?currentPageIndex=@(Model.currentPageIndex + 2)&firstName=@Model.firstName&lastName=@Model.lastName&phoneNo=@Model.phoneNo&Email=@Model.Email&Country=@Model.Country&State=@Model.State&City=@Model.City&DropDownLimit=@Model.DropDownLimit" class="pagination-inactive">..</a>
+                }
+            }
+            else
+            {
+                <button class="pagination-inactive dot-dot-inactive" disabled onclick="">..</button>
+            }
+            @if (Model.pageModel.total_pages != Model.currentPageIndex)
+            {
+                <a href="?currentPageIndex=@Model.pageModel.total_pages&firstName=@Model.firstName&lastName=@Model.lastName&phoneNo=@Model.phoneNo&Email=@Model.Email&Country=@Model.Country&State=@Model.State&City=@Model.City&DropDownLimit=@Model.DropDownLimit" class="pagination-inactive">@Model.pageModel.total_pages</a>
+            }
+            else
+            {
+                <span class="pagination-active">@Model.pageModel.total_pages</span>
+            }
+        }
+
+        @if (Model.currentPageIndex < Model.pageModel.total_pages)
+        {
+            <a href="?currentPageIndex=@(Model.currentPageIndex + 1)&firstName=@Model.firstName&lastName=@Model.lastName&phoneNo=@Model.phoneNo&Email=@Model.Email&Country=@Model.Country&State=@Model.State&City=@Model.City&DropDownLimit=@Model.DropDownLimit" class="prev-next-active next-button">&gt;&gt;</a>
+        }
+        else
+        {
+            <button disabled class="prev-next-inactive next-button" onclick="void(0)">&gt;&gt;</button>
+        }
+
+    </div>
+}
+
+
+
+
+
+
+@if (TempData["isSuccess"] != null)
+{
+    @if (Convert.ToBoolean(TempData["isSuccess"]) == true)
+    {
+        <script>
+            toastr.success("@TempData["SuccessMSG"]", "Success");
+        </script>
+    }
+    else if (Convert.ToBoolean(TempData["isSuccess"]) == false)
+    {
+        <script>
+            toastr.error("@TempData["SuccessMSG"]", "Error");
+        </script>
+    }
+}
+
+@if (TempData["isAdmin"] != null && TempData["AdminName"] != null)
+{
+    <script>
+        toastr.success("Welcome @TempData["AdminName"]", "Success");
+    </script>
+}
+
+
+<script>
+    document.getElementById('myForm').addEventListener('submit', function (event) {
+        document.getElementById('firstName').value = document.getElementById('firstName').value.trim();
+        document.getElementById('lastName').value = document.getElementById('lastName').value.trim();
+        document.getElementById('phoneNo').value = document.getElementById('phoneNo').value.trim();
+        document.getElementById('Email').value = document.getElementById('Email').value.trim();
+    });
+
+    function submitCSCTRY() {
+        let searchByCountry = document.getElementById("CountryFake").value;
+        let searchByState = document.getElementById("StateFake").value;
+        let searchByCity = document.getElementById("CityFake").value;
+
+        if (searchByCountry == null || searchByCountry == "Country") {
+            document.getElementById("Country").value = null;
+        }
+        else {
+            document.getElementById("Country").value = searchByCountry;
+        }
+        if (searchByState == null || searchByState == "State") {
+            document.getElementById("State").value = null;
+        }
+        else {
+            document.getElementById("State").value = searchByState;
+        }
+        if (searchByCity == null || searchByCity == "City") {
+            document.getElementById("City").value = null;
+        }
+        else {
+            document.getElementById("City").value = searchByCity;
+        }
+
+        document.forms[0].submit();
+    }
+
+</script>
