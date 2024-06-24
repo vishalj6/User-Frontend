@@ -59,34 +59,41 @@ namespace UsersProject.Pages.UserFolder
                 }
                 if (UserId != 0)
                 {
-                    var response = await _webApis.UserUpdateApiAsync(UserId: UserId, Password: Password);
 
-                    if (response.IsSuccessStatusCode)
+                    if (Request.Cookies.TryGetValue("jwt_token", out var token))
                     {
-                        string responseContent = await response.Content.ReadAsStringAsync();
-                        var result = JsonConvert.DeserializeObject<List<string>>(responseContent);
-
-                        var isSuccess = Convert.ToBoolean(result[0]);
-                        var successMsg = Convert.ToString(result[1]);
-
-                        TempData["isSuccess"] = isSuccess;
-                        TempData["SuccessMSG"] = successMsg;
-
-                        var isUser = TempData["isUser"] as bool? ?? false;
-                        TempData.Keep("isUser");
-
-                        if (isUser)
+                        var response = await _webApis.UserUpdateApiAsync(UserId: UserId, Password: Password, token:token);
+                        if (response.IsSuccessStatusCode)
                         {
-                            return RedirectToPage("./UserDetails", new { id = result[2] });
-                        }
+                            string responseContent = await response.Content.ReadAsStringAsync();
+                            var result = JsonConvert.DeserializeObject<List<string>>(responseContent);
 
-                        return RedirectToPage("./UserIndex");
+                            var isSuccess = Convert.ToBoolean(result[0]);
+                            var successMsg = Convert.ToString(result[1]);
+
+                            TempData["isSuccess"] = isSuccess;
+                            TempData["SuccessMSG"] = successMsg;
+
+                            var isUser = TempData["isUser"] as bool? ?? false;
+                            TempData.Keep("isUser");
+
+                            if (isUser)
+                            {
+                                return RedirectToPage("./UserDetails", new { id = result[2] });
+                            }
+
+                            return RedirectToPage("./UserIndex");
+                        }
+                        else
+                        {
+                            TempData["isSuccess"] = false;
+                            TempData["SuccessMSG"] = "Error occurred while updating user.";
+                            return RedirectToPage("./CreateUsers");
+                        }
                     }
                     else
                     {
-                        TempData["isSuccess"] = false;
-                        TempData["SuccessMSG"] = "Error occurred while updating user.";
-                        return RedirectToPage("./CreateUsers");
+                        return Unauthorized();
                     }
                 }
                 else

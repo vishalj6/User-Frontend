@@ -23,15 +23,29 @@ namespace UsersProject.Pages.UserFolder
             }
             if (TempData["isUser"] != null && TempData["isUser"] as Boolean? == true && TempData["UserPassword"] != null)
             {
+                TempData.Keep("isUser");
                 TempData.Keep("UserPassword");
-                User = await _webApis.GetUserDataApiAsync(id, TempData["UserPassword"].ToString());
-                TempData.Keep("UserPassword");
-
+                if (Request.Cookies.TryGetValue("jwt_token", out var token))
+                {
+                    User = await _webApis.GetUserDataApiAsync(id, TempData["UserPassword"].ToString(), token);
+                    TempData.Keep("UserPassword");
+                }
+                else
+                {
+                    return Unauthorized();
+                }
                 //User = objUser.GetUserData(id, TempData["UserPassword"].ToString());
             }
             else
             {
-                User = await _webApis.GetUserDataApiAsync(id);
+                if (Request.Cookies.TryGetValue("jwt_token", out var token))
+                {
+                    User = await _webApis.GetUserDataApiAsync(id, token: token);
+                }
+                else
+                {
+                    return Unauthorized();
+                }
                 //User = objUser.GetUserData(id);
             }
             TempData.Keep("UserPassword");

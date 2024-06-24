@@ -1,7 +1,10 @@
-﻿using Microsoft.AspNetCore.Http.HttpResults;
+﻿using Azure.Core;
+using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.VisualBasic;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 using System.Net.Http;
+using System.Net.Http.Headers;
 using System.Text;
 using UsersProject.Models;
 
@@ -10,7 +13,6 @@ namespace UsersProject.ApiSevices
     public class WebApis
     {
         private readonly HttpClient _httpClient = new HttpClient();
-
         public async Task<Dictionary<string, object>> GetUsersApiAsync(FilterData allFilter)
         {
             var allFilter2 = JsonConvert.SerializeObject(allFilter);
@@ -18,9 +20,13 @@ namespace UsersProject.ApiSevices
             var responseData = JsonConvert.DeserializeObject<Dictionary<string, object>>(response);
             return responseData;
         }
-        public async Task<UserPerson> GetUserDataApiAsync(int? user_id, string? user_password = "")
+        public async Task<UserPerson> GetUserDataApiAsync(int? user_id, string? user_password = "", string? token = "")
         {
             UserPerson User = new UserPerson();
+            if (!string.IsNullOrEmpty(token))
+            {
+                _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
+            }
             var response = await _httpClient.GetStringAsync($"https://localhost:7022/MainUser/GetUserData?UserId={user_id}&User_Password={user_password}");
             //var responseData = JsonConvert.DeserializeObject<Dictionary<string, object>>(response);
             //var ResUsers = JsonConvert.DeserializeObject<List<UserPerson>>(response);
@@ -28,10 +34,13 @@ namespace UsersProject.ApiSevices
             return User;
         }
 
-        public async Task<HttpResponseMessage> UserUpdateApiAsync(UserPerson user = null, int UserId = 0, string? Password = "")
+        public async Task<HttpResponseMessage> UserUpdateApiAsync(UserPerson user = null, int UserId = 0, string? Password = "", string token="")
         {
             string apiUrl = $"https://localhost:7022/MainUser/UpdateUser?UserId={UserId}&password={Password}";
-
+            if (!string.IsNullOrEmpty(token))
+            {
+                _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
+            }
             var content = new StringContent(JsonConvert.SerializeObject(user), Encoding.UTF8, "application/json");
             var response = await _httpClient.PostAsync(apiUrl, content);
             return response;
@@ -67,9 +76,13 @@ namespace UsersProject.ApiSevices
             return User.userID;
         }
 
-        public async Task<HttpResponseMessage> InsertUserApiAsync(UserPerson user)
+        public async Task<HttpResponseMessage> InsertUserApiAsync(UserPerson user, string? token = "")
         {
             string apiUrl = "https://localhost:7022/MainUser/InsertUser";
+            if (!string.IsNullOrEmpty(token))
+            {
+                _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
+            }
             var content = new StringContent(JsonConvert.SerializeObject(user), Encoding.UTF8, "application/json");
             var response = await _httpClient.PostAsync(apiUrl, content);
             return response;
@@ -89,23 +102,36 @@ namespace UsersProject.ApiSevices
             return "";
         }
 
-        public async Task<List<string>> GetCountriesApiAsync()
+        public async Task<List<string>> GetCountriesApiAsync(string token)
         {
             string apiUrl = $"https://localhost:7022/MainUser/GetCountries";
+            // Retrieve the token from cookies
+            if (!string.IsNullOrEmpty(token))
+            {
+                _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
+            }
             var response = await _httpClient.GetStringAsync(apiUrl);
             var responseData = JsonConvert.DeserializeObject<List<string>>(response);
             return responseData;
         }
-        public async Task<List<string>> GetStatesApiAsync()
+        public async Task<List<string>> GetStatesApiAsync(string? token = "")
         {
             string apiUrl = $"https://localhost:7022/MainUser/GetStates";
+            if (!string.IsNullOrEmpty(token))
+            {
+                _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
+            }
             var response = await _httpClient.GetStringAsync(apiUrl);
             var responseData = JsonConvert.DeserializeObject<List<string>>(response);
             return responseData;
         }
-        public async Task<List<string>> GetCitiesApiAsync()
+        public async Task<List<string>> GetCitiesApiAsync(string? token = "")
         {
             string apiUrl = $"https://localhost:7022/MainUser/GetCities";
+            if (!string.IsNullOrEmpty(token))
+            {
+                _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
+            }
             var response = await _httpClient.GetStringAsync(apiUrl);
             var responseData = JsonConvert.DeserializeObject<List<string>>(response);
             return responseData;

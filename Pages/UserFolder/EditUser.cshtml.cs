@@ -12,16 +12,10 @@ namespace UsersProject.Pages.UserFolder
         private readonly WebApis _webApis = new();
         [BindProperty]
         public UserPerson User { get; set; }
-        private HttpClient _httpClient;
-
-        public EditUserModel(HttpClient httpClient)
-        {
-            _httpClient = httpClient;
-        }
 
         public SelectList? City { get; set; }
 
-        public async Task<ActionResult> OnGetAsync(int? id)
+        public async Task<ActionResult> OnGet(int? id)
         {
             var isAdmin = TempData["isAdmin"] as bool? ?? false;
             var isUser = TempData["isUser"] as bool? ?? false;
@@ -36,8 +30,14 @@ namespace UsersProject.Pages.UserFolder
                 {
                     return NotFound();
                 }
-
-                User = await _webApis.GetUserDataApiAsync(id);
+                if (Request.Cookies.TryGetValue("jwt_token", out var token))
+                {
+                    User = await _webApis.GetUserDataApiAsync(id, token: token);
+                }
+                else
+                {
+                    return Unauthorized();
+                }
                 //User = await GetUserById(id.Value);
 
                 if (User == null)
@@ -73,42 +73,49 @@ namespace UsersProject.Pages.UserFolder
             if (!emailChanged || isAdmin)
             {
                 TempData.Keep("isAdmin");
-
                 //var result = objUser.UpdateUsers(User);
-                var response = await _webApis.UserUpdateApiAsync(User);
-
-                if (response.IsSuccessStatusCode)
+                if (Request.Cookies.TryGetValue("jwt_token", out var token))
                 {
-                    string responseContent = await response.Content.ReadAsStringAsync();
-                    var result = JsonConvert.DeserializeObject<List<string>>(responseContent);
-                    var isSuccess = Convert.ToBoolean(result[0]);
-                    var successMsg = Convert.ToString(result[1]);
-                    if (isSuccess)
+                    var response = await _webApis.UserUpdateApiAsync(User, token:token);
+
+                    if (response.IsSuccessStatusCode)
                     {
-                        TempData["isSuccess"] = isSuccess;
-                        TempData["SuccessMSG"] = successMsg;
+                        string responseContent = await response.Content.ReadAsStringAsync();
+                        var result = JsonConvert.DeserializeObject<List<string>>(responseContent);
+                        var isSuccess = Convert.ToBoolean(result[0]);
+                        var successMsg = Convert.ToString(result[1]);
+                        if (isSuccess)
+                        {
+                            TempData["isSuccess"] = isSuccess;
+                            TempData["SuccessMSG"] = successMsg;
+                        }
+                        else
+                        {
+                            TempData["isSuccess"] = false;
+                            TempData["SuccessMSG"] = "";
+                        }
                     }
                     else
                     {
+                        // Handle failed API call (e.g., log error)
                         TempData["isSuccess"] = false;
-                        TempData["SuccessMSG"] = "";
+                        TempData["SuccessMSG"] = "Error occurred while updating user.";
+                        return RedirectToPage("./UserIndex");
                     }
+                    var isUser = TempData["isUser"] as bool? ?? false;
+                    if (isUser)
+                    {
+                        TempData.Keep("isUser");
+                        return RedirectToPage("./UserDetails", new { id = oldUser?.userID });
+                    }
+
+                    return RedirectToPage("./UserIndex");
+
                 }
                 else
                 {
-                    // Handle failed API call (e.g., log error)
-                    TempData["isSuccess"] = false;
-                    TempData["SuccessMSG"] = "Error occurred while updating user.";
-                    return RedirectToPage("./UserIndex");
+                    return Unauthorized();
                 }
-                var isUser = TempData["isUser"] as bool? ?? false;
-                if (isUser)
-                {
-                    TempData.Keep("isUser");
-                    return RedirectToPage("./UserDetails", new { id = oldUser?.userID });
-                }
-
-                return RedirectToPage("./UserIndex");
             }
             else
             {

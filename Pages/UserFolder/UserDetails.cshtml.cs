@@ -24,18 +24,22 @@ namespace UsersProject.Pages.UserFolder
             string userPassword = TempData["UserPassword"]?.ToString();
             TempData.Keep("UserPassword");
 
-            using (var _httpClient = new HttpClient())
+            if (Request.Cookies.TryGetValue("jwt_token", out var token))
             {
                 if (isUser && userPassword != null)
                 {
-                    User = await _webApi.GetUserDataApiAsync(id, userPassword);
+                    User = await _webApi.GetUserDataApiAsync(id, userPassword, token);
                     //User = await _objUser.GetUserDataAsync(id.Value, userPassword);
                 }
                 else
                 {
-                    User = await _webApi.GetUserDataApiAsync(id);
+                    User = await _webApi.GetUserDataApiAsync(id, token:token);
                     //User = await _objUser.GetUserDataAsync(id.Value);
                 }
+            }
+            else
+            {
+                return Unauthorized();
             }
 
 

@@ -29,46 +29,52 @@ namespace Users.Pages
                 UserName = email,
                 Password = password
             };
-            using (var _httpClient = new HttpClient())
+
+            var response = await _webApis.UserVaidationApiAsync(validateUserRequest);
+
+            if (response.IsSuccessStatusCode)
             {
-                var response = await _webApis.UserVaidationApiAsync(validateUserRequest);
-
-                if (response.IsSuccessStatusCode)
+                string responseContent = await response.Content.ReadAsStringAsync();
+                var result = JsonConvert.DeserializeObject<Dictionary<string, object>>(responseContent);
+                try
                 {
-                    string responseContent = await response.Content.ReadAsStringAsync();
-                    var result = JsonConvert.DeserializeObject<Dictionary<string, object>>(responseContent);
-                    try
+                    (int, string) isValidUserID = (Convert.ToInt32(result["userId"]), result["firstName"].ToString());
+                    var token = result["token"].ToString();
+                    //string
+                    if (isValidUserID.Item1 != 0)
                     {
-                        (int, string) isValidUserID = (Convert.ToInt32(result["userId"]), result["firstName"].ToString());
-                        if (isValidUserID.Item1 != 0)
+                        Response.Cookies.Append("jwt_token", token, new CookieOptions
                         {
-                            TempData.Clear();
-                            TempData["isUser"] = true;
-                            TempData["UserId"] = isValidUserID.Item1.ToString();
-                            TempData["UserName"] = isValidUserID.Item2.ToString();
-                            TempData["UserPassword"] = password;
-                            //return RedirectToPage("./UserIndex");
-                            return RedirectToPage("./UserFolder/UserDetails", new { id = isValidUserID.Item1 });
-                        }
-                        else
-                        {
-                            TempData.Clear();
-                            TempData["isSuccess"] = false;
-                            TempData["SuccessMSG"] = "Username or Password is invalid!!";
-                            return Page();
-                        }
+                            HttpOnly = false,
+                            Secure = true,
+                            Expires = DateTime.UtcNow.AddHours(1)
+                        });
+                        TempData.Clear();
+                        TempData["isUser"] = true;
+                        TempData["UserId"] = isValidUserID.Item1.ToString();
+                        TempData["UserName"] = isValidUserID.Item2.ToString();
+                        TempData["UserPassword"] = password;
+                        //return RedirectToPage("./UserIndex");
+                        return RedirectToPage("./UserFolder/UserDetails", new { id = isValidUserID.Item1 });
+                    }
+                    else
+                    {
+                        TempData.Clear();
+                        TempData["isSuccess"] = false;
+                        TempData["SuccessMSG"] = "Username or Password is invalid!!";
+                        return Page();
+                    }
 
-                    }
-                    catch (Exception ex)
-                    {
-                        Console.WriteLine(ex);
-                        return BadRequest(ex.Message);
-                    }
                 }
-                else
+                catch (Exception ex)
                 {
-                    return BadRequest("An Error Occured in API");
+                    Console.WriteLine(ex);
+                    return BadRequest(ex.Message);
                 }
+            }
+            else
+            {
+                return BadRequest("An Error Occured in API");
             }
         }
     }

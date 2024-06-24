@@ -65,7 +65,14 @@ namespace UsersProject.Pages.UserFolder
                 //pageModel.AllUsers = users;
                 //pageModel.total_pages = 3;
                 pageModel = await GetCustomers();
-                await PopulateSelectListsAsync();
+                if (Request.Cookies.TryGetValue("jwt_token", out var token))
+                {
+                    await PopulateSelectListsAsync(token);
+                }
+                else
+                {
+                    return Unauthorized();
+                }
                 return Page();
             }
 
@@ -108,11 +115,12 @@ namespace UsersProject.Pages.UserFolder
             return pageModel;
         }
 
-        private async Task PopulateSelectListsAsync()
+        private async Task PopulateSelectListsAsync(string token)
         {
-            CountryList = new SelectList(await _webApis.GetCountriesApiAsync());
-            StateList = new SelectList(await _webApis.GetStatesApiAsync());
-            CityList = new SelectList(await _webApis.GetCitiesApiAsync());
+
+            CountryList = new SelectList(await _webApis.GetCountriesApiAsync(token));
+            StateList = new SelectList(await _webApis.GetStatesApiAsync(token));
+            CityList = new SelectList(await _webApis.GetCitiesApiAsync(token));
             //CountryList = new SelectList(objUser.GetCountries());
             //StateList = new SelectList(objUser.GetStates());
             //CityList = new SelectList(objUser.GetCities());
