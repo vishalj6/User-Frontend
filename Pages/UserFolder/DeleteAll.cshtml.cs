@@ -52,7 +52,14 @@ namespace UsersProject.Pages.UserFolder
             return Page();
             if (TempData["isDeleteAll"] as bool? == true)
             {
-                await _webApis.DeleteAllPersonsApiAsync();
+                if (Request.Cookies.TryGetValue("jwt_token", out var token))
+                {
+                    await _webApis.DeleteAllPersonsApiAsync(token);
+                }
+                else
+                {
+                    return Unauthorized();
+                }
                 //objUser.DeleteAllPersons();
                 TempData["isDeleteAll"] = false; // Reset TempData after operation
                 TempData["isSuccess"] = true;

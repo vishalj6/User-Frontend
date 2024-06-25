@@ -47,8 +47,7 @@ namespace UsersProject.Pages.UserFolder
 
                 TempData["OldUser"] = JsonConvert.SerializeObject(User);
                 TempData.Keep("UserPassword");
-
-                City = new SelectList(await _webApis.GetCitiesApiAsync());
+                City = new SelectList(await _webApis.GetCitiesApiAsync(token));
 
                 return Page();
             }
@@ -62,7 +61,10 @@ namespace UsersProject.Pages.UserFolder
         {
             if (!ModelState.IsValid)
             {
-                City = new SelectList(await _webApis.GetCitiesApiAsync());
+                if (Request.Cookies.TryGetValue("jwt_token", out var token))
+                {
+                    City = new SelectList(await _webApis.GetCitiesApiAsync(token));
+                }
                 return Page();
             }
 
@@ -76,7 +78,7 @@ namespace UsersProject.Pages.UserFolder
                 //var result = objUser.UpdateUsers(User);
                 if (Request.Cookies.TryGetValue("jwt_token", out var token))
                 {
-                    var response = await _webApis.UserUpdateApiAsync(User, token:token);
+                    var response = await _webApis.UserUpdateApiAsync(User, token: token);
 
                     if (response.IsSuccessStatusCode)
                     {

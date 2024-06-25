@@ -30,32 +30,31 @@ namespace UsersProject.Pages
                 Password = adminpas
             };
             //bool isValidUserID = objUser.Admin_Validation(adminname, adminpas);
-            var response = await _webApis.AdminVaidationApiAsync(validateUserRequest);
 
+            var response = await _webApis.AdminVaidationApiAsync(validateUserRequest);
             if (response.IsSuccessStatusCode)
             {
-                string responseContent = await response.Content.ReadAsStringAsync();
-                var isValidUserID = JsonConvert.DeserializeObject<bool>(responseContent);
-                if (isValidUserID)
+                string returnedToken = await response.Content.ReadAsStringAsync();
+                Response.Cookies.Append("jwt_token", returnedToken, new CookieOptions
                 {
-                    TempData.Clear();
-                    TempData["isAdmin"] = true;
-                    TempData["AdminName"] = adminname;
-                    TempData["AdminNameForDelete"] = adminname;
-                    //TempData.Keep("AdminName");
-                    return RedirectToPage("/UserFolder/UserIndex");
-                }
-                else
-                {
-                    TempData.Clear();
-                    TempData["isSuccess"] = false;
-                    TempData["SuccessMSG"] = "Adminname or Password is invalid!!";
-                    return Page();
-                }
+                    HttpOnly = false,
+                    Secure = true,
+                    Expires = DateTime.UtcNow.AddHours(1)
+                });
+                TempData.Clear();
+                TempData["isAdmin"] = true;
+                TempData["AdminName"] = adminname;
+                TempData["AdminNameForDelete"] = adminname;
+                //TempData.Keep("AdminName");
+                return RedirectToPage("/UserFolder/UserIndex");
             }
             else
             {
-                return BadRequest("Admin not found !! Error in API");
+                TempData.Clear();
+                TempData["isSuccess"] = false;
+                TempData["SuccessMSG"] = "Adminname or Password is invalid!!";
+                return Page();
+                //return BadRequest("Admin not found !! Error in API");
             }
 
         }

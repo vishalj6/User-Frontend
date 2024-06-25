@@ -74,3 +74,4 @@ E:\C sharp\Users\obj\Debug\net8.0\ref\UsersProject.dll
 E:\C sharp\Users\bin\Debug\net8.0\Newtonsoft.Json.dll
 E:\C sharp\Users\bin\Debug\net8.0\System.Security.Permissions.dll
 E:\C sharp\Users\obj\Debug\net8.0\UsersProject.sourcelink.json
+E:\C sharp\Users\bin\Debug\net8.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll

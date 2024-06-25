@@ -29,7 +29,8 @@ namespace UsersProject.Pages.UserFolder
             if (userEmail != null)
             {
                 //if (objUser.ValidateUserByEmail(userEmail) != 0)
-                if (await _webApis.UserVaidationByMailApiAsync(userEmail) != 0)
+                int UserID = await _webApis.UserVaidationByMailApiAsync(userEmail);
+                if (UserID != 0)
                 {
                     string otp = await _webApis.SendOtpApiAsync(userEmail, "");
                     //string otp = objUser.SendOTPEmail(userEmail, "");

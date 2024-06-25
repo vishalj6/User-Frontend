@@ -72,31 +72,24 @@ namespace UsersProject.Pages.UserFolder
                     else
                     {
                         //result = objUser.Insert_User(user);
-                        if (Request.Cookies.TryGetValue("jwt_token", out var token))
+                        var response = await _webApis.InsertUserApiAsync(user);
+
+                        if (response.IsSuccessStatusCode)
                         {
-                            var response = await _webApis.InsertUserApiAsync(user,token);
-
-                            if (response.IsSuccessStatusCode)
-                            {
-                                string responseContent = await response.Content.ReadAsStringAsync();
-                                result = JsonConvert.DeserializeObject<List<string>>(responseContent);
-                                // Handle successful API response (e.g., parse response data)
-                            }
-                            else
-                            {
-                                // Handle failed API call (e.g., log error)
-                                TempData["isSuccess"] = false;
-                                TempData["SuccessMSG"] = "Error occurred while creating user.";
-                                return RedirectToPage("./CreateUsers");
-                            }
-
-                            isSuccess = Convert.ToBoolean(result[0]);
-                            successMsg = Convert.ToString(result[1]);
+                            string responseContent = await response.Content.ReadAsStringAsync();
+                            result = JsonConvert.DeserializeObject<List<string>>(responseContent);
+                            // Handle successful API response (e.g., parse response data)
                         }
                         else
                         {
-                            return Unauthorized();
+                            // Handle failed API call (e.g., log error)
+                            TempData["isSuccess"] = false;
+                            TempData["SuccessMSG"] = "Error occurred while creating user.";
+                            return RedirectToPage("./CreateUsers");
                         }
+
+                        isSuccess = Convert.ToBoolean(result[0]);
+                        successMsg = Convert.ToString(result[1]);
 
                     }
 

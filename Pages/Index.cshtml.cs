@@ -40,30 +40,19 @@ namespace Users.Pages
                 {
                     (int, string) isValidUserID = (Convert.ToInt32(result["userId"]), result["firstName"].ToString());
                     var token = result["token"].ToString();
-                    //string
-                    if (isValidUserID.Item1 != 0)
+                    Response.Cookies.Append("jwt_token", token, new CookieOptions
                     {
-                        Response.Cookies.Append("jwt_token", token, new CookieOptions
-                        {
-                            HttpOnly = false,
-                            Secure = true,
-                            Expires = DateTime.UtcNow.AddHours(1)
-                        });
-                        TempData.Clear();
-                        TempData["isUser"] = true;
-                        TempData["UserId"] = isValidUserID.Item1.ToString();
-                        TempData["UserName"] = isValidUserID.Item2.ToString();
-                        TempData["UserPassword"] = password;
-                        //return RedirectToPage("./UserIndex");
-                        return RedirectToPage("./UserFolder/UserDetails", new { id = isValidUserID.Item1 });
-                    }
-                    else
-                    {
-                        TempData.Clear();
-                        TempData["isSuccess"] = false;
-                        TempData["SuccessMSG"] = "Username or Password is invalid!!";
-                        return Page();
-                    }
+                        HttpOnly = false,
+                        Secure = true,
+                        Expires = DateTime.UtcNow.AddHours(1)
+                    });
+                    TempData.Clear();
+                    TempData["isUser"] = true;
+                    TempData["UserId"] = isValidUserID.Item1.ToString();
+                    TempData["UserName"] = isValidUserID.Item2.ToString();
+                    TempData["UserPassword"] = password;
+                    //return RedirectToPage("./UserIndex");
+                    return RedirectToPage("./UserFolder/UserDetails", new { id = isValidUserID.Item1 });
 
                 }
                 catch (Exception ex)
@@ -74,7 +63,11 @@ namespace Users.Pages
             }
             else
             {
-                return BadRequest("An Error Occured in API");
+                TempData.Clear();
+                TempData["isSuccess"] = false;
+                TempData["SuccessMSG"] = "Username or Password is invalid!!";
+                return Page();
+                //return BadRequest("An Error Occured in API");
             }
         }
     }

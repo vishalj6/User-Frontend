@@ -103,15 +103,18 @@ namespace UsersProject.Pages.UserFolder
                 DropDownLimit = DropDownLimit,
                 currentPageIndex = currentPageIndex
             };
-
-            var responseData = await _webApis.GetUsersApiAsync(allFilter);
-            PaginationUser pageModel = new PaginationUser
+            if (Request.Cookies.TryGetValue("jwt_token", out var token))
             {
-                AllUsers = JsonConvert.DeserializeObject<List<UserPerson>>(responseData["users"].ToString()),
-                total_pages = Convert.ToInt32(responseData["totalPages"]),
-                total_users = Convert.ToInt32(responseData["totalUsers"])
-            };
-            //pageModel.AllUsers = objUser.ViewAllUsers(currentPage, DropDownLimit, pageModel, UserSearch).ToList();
+                var responseData = await _webApis.GetUsersApiAsync(allFilter, token);
+                PaginationUser pageModel = new PaginationUser
+                {
+                    AllUsers = JsonConvert.DeserializeObject<List<UserPerson>>(responseData["users"].ToString()),
+                    total_pages = Convert.ToInt32(responseData["totalPages"]),
+                    total_users = Convert.ToInt32(responseData["totalUsers"])
+                };
+                return pageModel;
+                //pageModel.AllUsers = objUser.ViewAllUsers(currentPage, DropDownLimit, pageModel, UserSearch).ToList();
+            }
             return pageModel;
         }
 

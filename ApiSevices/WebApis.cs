@@ -13,9 +13,14 @@ namespace UsersProject.ApiSevices
     public class WebApis
     {
         private readonly HttpClient _httpClient = new HttpClient();
-        public async Task<Dictionary<string, object>> GetUsersApiAsync(FilterData allFilter)
+        public async Task<Dictionary<string, object>> GetUsersApiAsync(FilterData allFilter, string? token = "")
         {
+
             var allFilter2 = JsonConvert.SerializeObject(allFilter);
+            if (!string.IsNullOrEmpty(token))
+            {
+                _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
+            }
             var response = await _httpClient.GetStringAsync($"https://localhost:7022/MainUser/GetUsers?allFilter={allFilter2}");
             var responseData = JsonConvert.DeserializeObject<Dictionary<string, object>>(response);
             return responseData;
@@ -61,28 +66,24 @@ namespace UsersProject.ApiSevices
         }
         public async Task<int> UserVaidationByMailApiAsync(string userEmail)
         {
-            UserPerson User = new();
+            ValidateUserRequest UserCredetials = new ValidateUserRequest { UserName = userEmail};
             try
             {
-                FilterData validateUser = new FilterData { Email = userEmail };
-                var responseData = await GetUsersApiAsync(validateUser);
-                User = JsonConvert.DeserializeObject<List<UserPerson>>(responseData["users"].ToString())[0];
+                string apiUrl = $"https://localhost:7022/MainUser/ValidateUser";
+                var content = new StringContent(JsonConvert.SerializeObject(UserCredetials), Encoding.UTF8, "application/json");
+                var response = await _httpClient.PostAsync(apiUrl, content);
+                return Convert.ToInt32(response.Content.ToString());
             }
             catch (Exception ex)
             {
                 Console.WriteLine(ex.ToString());
                 return 0;
             }
-            return User.userID;
         }
 
-        public async Task<HttpResponseMessage> InsertUserApiAsync(UserPerson user, string? token = "")
+        public async Task<HttpResponseMessage> InsertUserApiAsync(UserPerson user)
         {
             string apiUrl = "https://localhost:7022/MainUser/InsertUser";
-            if (!string.IsNullOrEmpty(token))
-            {
-                _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
-            }
             var content = new StringContent(JsonConvert.SerializeObject(user), Encoding.UTF8, "application/json");
             var response = await _httpClient.PostAsync(apiUrl, content);
             return response;
@@ -136,17 +137,24 @@ namespace UsersProject.ApiSevices
             var responseData = JsonConvert.DeserializeObject<List<string>>(response);
             return responseData;
         }
-        public async Task<HttpResponseMessage> DeleteOnePersonApiAsync(int UserId)
+        public async Task<HttpResponseMessage> DeleteOnePersonApiAsync(int UserId, string? token = "")
         {
-
             string apiUrl = "https://localhost:7022/MainUser/DeleteUser"; // Replace with your actual API URL and controller method
+            if (!string.IsNullOrEmpty(token))
+            {
+                _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
+            }
             var content = new StringContent(JsonConvert.SerializeObject(UserId), Encoding.UTF8, "application/json");
             var response = await _httpClient.PostAsync(apiUrl, content);
             return response;
         }
-        public async Task<bool> DeleteAllPersonsApiAsync()
+        public async Task<bool> DeleteAllPersonsApiAsync(string? token = "")
         {
             string apiUrl = $"https://localhost:7022/MainUser/DeleteAllPersons";
+            if (!string.IsNullOrEmpty(token))
+            {
+                _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
+            }
             var response = await _httpClient.GetStringAsync(apiUrl);
             var responseData = JsonConvert.DeserializeObject<bool>(response);
             return responseData;

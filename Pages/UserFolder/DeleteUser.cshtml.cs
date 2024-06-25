@@ -63,26 +63,32 @@ namespace UsersProject.Pages.UserFolder
             {
                 return NotFound();
             }
-
-            var response = await _webApis.DeleteOnePersonApiAsync(id);
-            if (response.IsSuccessStatusCode)
+            if (Request.Cookies.TryGetValue("jwt_token", out var token))
             {
-                string responseContent = await response.Content.ReadAsStringAsync();
-                var result = JsonConvert.DeserializeObject<List<string>>(responseContent);
-                // Handle successful API response (e.g., parse response data)
-                bool isSuccess = Convert.ToBoolean(result[0]);
-                string successMsg = Convert.ToString(result[1]);
-                //List<string> Result = objUser.DeleteUsers(id);
-                TempData["isSuccess"] = isSuccess;
-                TempData["SuccessMSG"] = successMsg;
+                var response = await _webApis.DeleteOnePersonApiAsync(id, token);
+                if (response.IsSuccessStatusCode)
+                {
+                    string responseContent = await response.Content.ReadAsStringAsync();
+                    var result = JsonConvert.DeserializeObject<List<string>>(responseContent);
+                    // Handle successful API response (e.g., parse response data)
+                    bool isSuccess = Convert.ToBoolean(result[0]);
+                    string successMsg = Convert.ToString(result[1]);
+                    //List<string> Result = objUser.DeleteUsers(id);
+                    TempData["isSuccess"] = isSuccess;
+                    TempData["SuccessMSG"] = successMsg;
 
+                }
+                else
+                {
+                    // Handle failed API call (e.g., log error)
+                    TempData["isSuccess"] = false;
+                    TempData["SuccessMSG"] = "Error occurred while Deleting user.";
+                    return RedirectToPage("./UserIndex");
+                }
             }
             else
             {
-                // Handle failed API call (e.g., log error)
-                TempData["isSuccess"] = false;
-                TempData["SuccessMSG"] = "Error occurred while Deleting user.";
-                return RedirectToPage("./UserIndex");
+                return Unauthorized();
             }
             return RedirectToPage("./UserIndex");
         }
