@@ -10,7 +10,7 @@ namespace UsersProject.Pages.UserFolder
 {
     public class CreateUsersModel : PageModel
     {
-        private readonly WebApis _webApis = new();
+        private readonly WebApis _webApis;
         public SelectList? City { get; set; }
 
         [BindProperty]
@@ -19,6 +19,10 @@ namespace UsersProject.Pages.UserFolder
         [BindProperty]
         public UserPerson Users { get; set; }
 
+        public CreateUsersModel(WebApis webApis)
+        {
+            _webApis = webApis;
+        }
         public async Task<ActionResult> OnGet()
         {
             await PopulateCitySelectListAsync();

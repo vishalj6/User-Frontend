@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Newtonsoft.Json;
 using UsersProject.ApiSevices;
+using UsersProject.Middleware;
 using UsersProject.Models;
 
 namespace UsersProject.Pages.UserFolder
@@ -53,8 +54,13 @@ namespace UsersProject.Pages.UserFolder
 
         //}
 
-        private readonly WebApis _webApis = new();
+        private readonly WebApis _webApis;
         public List<UserPerson> Users { get; set; }
+
+        public UserIndexModel(WebApis webApis)
+        {
+            _webApis = webApis;
+        }
 
         public async Task<ActionResult> OnGet()
         {

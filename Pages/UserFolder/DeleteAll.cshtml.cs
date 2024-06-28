@@ -8,8 +8,13 @@ namespace UsersProject.Pages.UserFolder
 {
     public class DeleteAllModel : PageModel
     {
-        private readonly WebApis _webApis = new();
+        private readonly WebApis _webApis;
         public bool isDeleteAll { get; set; }
+
+        public DeleteAllModel(WebApis webApis)
+        {
+            _webApis = webApis;
+        }
         public void OnGet()
         {
             TempData["isDeleteAll"] = false;
@@ -30,17 +35,13 @@ namespace UsersProject.Pages.UserFolder
             if (response.IsSuccessStatusCode)
             {
                 string responseContent = await response.Content.ReadAsStringAsync();
-                var isAdminValid = JsonConvert.DeserializeObject<bool>(responseContent);
-                if (isAdminValid)
-                {
-                    TempData["isDeleteAll"] = true; // Set TempData to indicate confirmation
-                }
-                else
-                {
-                    TempData["isDeleteAll"] = false;
-                    TempData["isSuccess"] = false;
-                    TempData["SuccessMSG"] = "Wrong Password!!";
-                }
+                TempData["isDeleteAll"] = true; // Set TempData to indicate confirmation
+            }
+            else
+            {
+                TempData["isDeleteAll"] = false;
+                TempData["isSuccess"] = false;
+                TempData["SuccessMSG"] = "Wrong Password!!";
             }
 
             TempData.Keep("isDeleteAll");

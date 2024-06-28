@@ -1,8 +1,14 @@
 using UsersProject.ApiSevices;
+using UsersProject.Middleware;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+// Register the encryption handler
+builder.Services.AddTransient<EncryptionHandler>();
+// Register the HttpClient with the encryption handler
+builder.Services.AddHttpClient<WebApis>()
+    .AddHttpMessageHandler<EncryptionHandler>();
 builder.Services.AddRazorPages();
 builder.Services.AddHttpClient("ApiClient", client =>
 {

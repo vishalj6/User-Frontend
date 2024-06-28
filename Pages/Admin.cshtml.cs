@@ -15,10 +15,15 @@ namespace UsersProject.Pages
         [BindProperty(SupportsGet = true)]
         public string adminpas { get; set; }
 
-        private readonly WebApis _webApis = new();
+        private readonly WebApis _webApis;
 
+        public AdminModel(WebApis webApis)
+        {
+            _webApis = webApis;
+        }
         public void OnGet()
         {
+            Response.Cookies.Delete("jwt_token");
             TempData.Clear();
         }
 

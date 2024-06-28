@@ -8,7 +8,7 @@ namespace UsersProject.Pages.UserFolder
 {
     public class forgotPasswordModel : PageModel
     {
-        private readonly WebApis _webApis = new();
+        private readonly WebApis _webApis;
 
         [BindProperty]
         [Required(ErrorMessage = "Email is required")]
@@ -20,6 +20,10 @@ namespace UsersProject.Pages.UserFolder
         [BindProperty]
         public string confirmPassword { get; set; }
 
+        public forgotPasswordModel(WebApis webApis)
+        {
+            _webApis = webApis;
+        }
         public void OnGet()
         {
         }

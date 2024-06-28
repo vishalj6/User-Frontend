@@ -8,7 +8,7 @@ namespace UsersProject.Pages.UserFolder
 {
     public class OtpVerificationModel : PageModel
     {
-        private readonly WebApis _webApis = new();
+        private readonly WebApis _webApis;
 
         [BindProperty]
         public string Action { get; set; }
@@ -18,6 +18,10 @@ namespace UsersProject.Pages.UserFolder
         [BindProperty]
         public string isResetPassword { get; set; }
 
+        public OtpVerificationModel(WebApis webApis)
+        {
+            _webApis = webApis;
+        }
         public void OnGet()
         {
 

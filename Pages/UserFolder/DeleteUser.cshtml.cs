@@ -8,12 +8,15 @@ namespace UsersProject.Pages.UserFolder
 {
     public class DeleteUserModel : PageModel
     {
-        private readonly WebApis _webApis = new();
+        private readonly WebApis _webApis;
 
         [BindProperty]
         public UserPerson User { get; set; }
 
-
+        public DeleteUserModel(WebApis webApis)
+        {
+            _webApis = webApis;
+        }
         public async Task<ActionResult> OnGet(int? id)
         {
 

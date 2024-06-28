@@ -8,10 +8,13 @@ namespace UsersProject.Pages.UserFolder
     public class UserDetailsModel : PageModel
     {
 
-        private readonly WebApis _webApi = new();
+        private readonly WebApis _webApi;
 
         public UserPerson User { get; set; }
-
+        public UserDetailsModel(WebApis webApis)
+        {
+            _webApi = webApis;
+        }
         public async Task<IActionResult> OnGet(int? id)
         {
             if (!id.HasValue)

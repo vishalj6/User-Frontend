@@ -9,12 +9,16 @@ namespace UsersProject.Pages.UserFolder
 {
     public class EditUserModel : PageModel
     {
-        private readonly WebApis _webApis = new();
+        private readonly WebApis _webApis;
         [BindProperty]
         public UserPerson User { get; set; }
 
         public SelectList? City { get; set; }
 
+        public EditUserModel(WebApis webApis)
+        {
+            _webApis = webApis;
+        }
         public async Task<ActionResult> OnGet(int? id)
         {
             var isAdmin = TempData["isAdmin"] as bool? ?? false;

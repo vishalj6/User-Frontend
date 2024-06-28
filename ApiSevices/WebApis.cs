@@ -6,23 +6,29 @@ using Newtonsoft.Json.Linq;
 using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Text;
+using UsersProject.Middleware;
 using UsersProject.Models;
 
 namespace UsersProject.ApiSevices
 {
     public class WebApis
     {
-        private readonly HttpClient _httpClient = new HttpClient();
-        public async Task<Dictionary<string, object>> GetUsersApiAsync(FilterData allFilter, string? token = "")
+        private readonly HttpClient _httpClient;
+        public WebApis(HttpClient httpClient)
         {
-
-            var allFilter2 = JsonConvert.SerializeObject(allFilter);
+            _httpClient = httpClient;
+        }
+        public async Task<Dictionary<string, object>> GetUsersApiAsync(FilterData allFilter, string? token = "")
+        { 
             if (!string.IsNullOrEmpty(token))
             {
                 _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
             }
-            var response = await _httpClient.GetStringAsync($"https://localhost:7022/MainUser/GetUsers?allFilter={allFilter2}");
-            var responseData = JsonConvert.DeserializeObject<Dictionary<string, object>>(response);
+            var apiUrl = $"https://localhost:7022/MainUser/GetUsers";
+            var content = new StringContent(EncryptionHelper.EncryptString(JsonConvert.SerializeObject(allFilter)), Encoding.UTF8, "application/json");
+            var response = await _httpClient.PostAsync(apiUrl, content);
+            var responseString = await response.Content.ReadAsStringAsync();
+            var responseData = JsonConvert.DeserializeObject<Dictionary<string, object>>(responseString);
             return responseData;
         }
         public async Task<UserPerson> GetUserDataApiAsync(int? user_id, string? user_password = "", string? token = "")
@@ -46,21 +52,21 @@ namespace UsersProject.ApiSevices
             {
                 _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
             }
-            var content = new StringContent(JsonConvert.SerializeObject(user), Encoding.UTF8, "application/json");
+            var content = new StringContent(EncryptionHelper.EncryptString(JsonConvert.SerializeObject(user)), Encoding.UTF8, "application/json");
             var response = await _httpClient.PostAsync(apiUrl, content);
             return response;
         }
         public async Task<HttpResponseMessage> AdminVaidationApiAsync(ValidateUserRequest validateUserRequest)
         {
             string apiUrl = $"https://localhost:7022/MainUser/ValidateAdmin";
-            var content = new StringContent(JsonConvert.SerializeObject(validateUserRequest), Encoding.UTF8, "application/json");
+            var content = new StringContent(EncryptionHelper.EncryptString(JsonConvert.SerializeObject(validateUserRequest)), Encoding.UTF8, "application/json");
             var response = await _httpClient.PostAsync(apiUrl, content);
             return response;
         }
         public async Task<HttpResponseMessage> UserVaidationApiAsync(ValidateUserRequest validateUserRequest)
         {
             string apiUrl = $"https://localhost:7022/MainUser/ValidateUser";
-            var content = new StringContent(JsonConvert.SerializeObject(validateUserRequest), Encoding.UTF8, "application/json");
+            var content = new StringContent(EncryptionHelper.EncryptString(JsonConvert.SerializeObject(validateUserRequest)), Encoding.UTF8, "application/json");
             var response = await _httpClient.PostAsync(apiUrl, content);
             return response;
         }
@@ -70,7 +76,7 @@ namespace UsersProject.ApiSevices
             try
             {
                 string apiUrl = $"https://localhost:7022/MainUser/ValidateUser";
-                var content = new StringContent(JsonConvert.SerializeObject(UserCredetials), Encoding.UTF8, "application/json");
+                var content = new StringContent(EncryptionHelper.EncryptString(JsonConvert.SerializeObject(UserCredetials)), Encoding.UTF8, "application/json");
                 var response = await _httpClient.PostAsync(apiUrl, content);
                 return Convert.ToInt32(response.Content.ToString());
             }
@@ -84,7 +90,7 @@ namespace UsersProject.ApiSevices
         public async Task<HttpResponseMessage> InsertUserApiAsync(UserPerson user)
         {
             string apiUrl = "https://localhost:7022/MainUser/InsertUser";
-            var content = new StringContent(JsonConvert.SerializeObject(user), Encoding.UTF8, "application/json");
+            var content = new StringContent(EncryptionHelper.EncryptString(JsonConvert.SerializeObject(user)), Encoding.UTF8, "application/json");
             var response = await _httpClient.PostAsync(apiUrl, content);
             return response;
         }
@@ -144,7 +150,7 @@ namespace UsersProject.ApiSevices
             {
                 _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
             }
-            var content = new StringContent(JsonConvert.SerializeObject(UserId), Encoding.UTF8, "application/json");
+            var content = new StringContent(EncryptionHelper.EncryptString(JsonConvert.SerializeObject(UserId)), Encoding.UTF8, "application/json");
             var response = await _httpClient.PostAsync(apiUrl, content);
             return response;
         }
@@ -155,8 +161,9 @@ namespace UsersProject.ApiSevices
             {
                 _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
             }
-            var response = await _httpClient.GetStringAsync(apiUrl);
-            var responseData = JsonConvert.DeserializeObject<bool>(response);
+            var response = await _httpClient.PostAsync(apiUrl, null);
+            var responseString = await response.Content.ReadAsStringAsync();
+            var responseData = JsonConvert.DeserializeObject<bool>(responseString);
             return responseData;
         }
     }

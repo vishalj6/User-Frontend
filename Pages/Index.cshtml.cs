@@ -8,17 +8,22 @@ namespace Users.Pages
 {
     public class IndexModel : PageModel
     {
-        private readonly WebApis _webApis = new();
+        private readonly WebApis _webApis;
 
         [BindProperty(SupportsGet = true)]
         public string email { get; set; }
         [BindProperty(SupportsGet = true)]
         public string password { get; set; }
 
+        public IndexModel(WebApis webApis)
+        {
+            _webApis = webApis;
+        }
 
 
         public void OnGet()
         {
+            Response.Cookies.Delete("jwt_token");
             TempData.Clear();
         }
         public async Task<ActionResult> OnPostAsync()
