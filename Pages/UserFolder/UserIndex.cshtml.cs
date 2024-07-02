@@ -129,7 +129,7 @@ namespace UsersProject.Pages.UserFolder
 
             CountryList = new SelectList(await _webApis.GetCountriesApiAsync(token));
             StateList = new SelectList(await _webApis.GetStatesApiAsync(token));
-            CityList = new SelectList(await _webApis.GetCitiesApiAsync(token));
+            CityList = new SelectList(await _webApis.GetCitiesApiAsync());
             //CountryList = new SelectList(objUser.GetCountries());
             //StateList = new SelectList(objUser.GetStates());
             //CityList = new SelectList(objUser.GetCities());

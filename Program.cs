@@ -4,11 +4,12 @@ using UsersProject.Middleware;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-// Register the encryption handler
-builder.Services.AddTransient<EncryptionHandler>();
-// Register the HttpClient with the encryption handler
+builder.Services.AddTransient<DecryptionHandler>(); // Register DecryptionHandler
+
+// Register the HttpClient with the decryption handler
 builder.Services.AddHttpClient<WebApis>()
-    .AddHttpMessageHandler<EncryptionHandler>();
+    .AddHttpMessageHandler<DecryptionHandler>(); // Add DecryptionHandler to HttpClient
+
 builder.Services.AddRazorPages();
 builder.Services.AddHttpClient("ApiClient", client =>
 {
@@ -22,9 +23,8 @@ builder.Services.AddHttpClient("ApiClient", client =>
     };
 });
 
-// Register HttpClient
-builder.Services.AddScoped<WebApis>();
-builder.Services.AddHttpClient();
+builder.Services.AddScoped<WebApis>(); // Register WebApis
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -32,7 +32,6 @@ if (!app.Environment.IsDevelopment())
 {
     app.UseExceptionHandler("/Error");
     app.UseHsts();
-
 }
 
 app.UseHttpsRedirection();

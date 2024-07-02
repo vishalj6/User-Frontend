@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Newtonsoft.Json;
 using UsersProject.ApiSevices;
+using UsersProject.Middleware;
 using UsersProject.Models;
 
 namespace Users.Pages
@@ -39,7 +40,7 @@ namespace Users.Pages
 
             if (response.IsSuccessStatusCode)
             {
-                string responseContent = await response.Content.ReadAsStringAsync();
+                string responseContent = DecryptionHelper.DecryptString(await response.Content.ReadAsStringAsync());
                 var result = JsonConvert.DeserializeObject<Dictionary<string, object>>(responseContent);
                 try
                 {

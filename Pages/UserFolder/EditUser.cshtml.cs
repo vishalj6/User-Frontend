@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Newtonsoft.Json;
 using UsersProject.ApiSevices;
+using UsersProject.Middleware;
 using UsersProject.Models;
 
 namespace UsersProject.Pages.UserFolder
@@ -37,6 +38,8 @@ namespace UsersProject.Pages.UserFolder
                 if (Request.Cookies.TryGetValue("jwt_token", out var token))
                 {
                     User = await _webApis.GetUserDataApiAsync(id, token: token);
+                    TempData["OldUser"] = JsonConvert.SerializeObject(User);
+                    City = new SelectList(await _webApis.GetCitiesApiAsync());
                 }
                 else
                 {
@@ -49,9 +52,7 @@ namespace UsersProject.Pages.UserFolder
                     return NotFound();
                 }
 
-                TempData["OldUser"] = JsonConvert.SerializeObject(User);
                 TempData.Keep("UserPassword");
-                City = new SelectList(await _webApis.GetCitiesApiAsync(token));
 
                 return Page();
             }
@@ -65,10 +66,7 @@ namespace UsersProject.Pages.UserFolder
         {
             if (!ModelState.IsValid)
             {
-                if (Request.Cookies.TryGetValue("jwt_token", out var token))
-                {
-                    City = new SelectList(await _webApis.GetCitiesApiAsync(token));
-                }
+                    City = new SelectList(await _webApis.GetCitiesApiAsync());
                 return Page();
             }
 
@@ -80,13 +78,13 @@ namespace UsersProject.Pages.UserFolder
             {
                 TempData.Keep("isAdmin");
                 //var result = objUser.UpdateUsers(User);
-                if (Request.Cookies.TryGetValue("jwt_token", out var token))
+                if (Request.Cookies.ContainsKey("jwt_token"))
                 {
-                    var response = await _webApis.UserUpdateApiAsync(User, token: token);
+                    var response = await _webApis.UserUpdateApiAsync(User);
 
                     if (response.IsSuccessStatusCode)
                     {
-                        string responseContent = await response.Content.ReadAsStringAsync();
+                        string responseContent = DecryptionHelper.DecryptString(await response.Content.ReadAsStringAsync());
                         var result = JsonConvert.DeserializeObject<List<string>>(responseContent);
                         var isSuccess = Convert.ToBoolean(result[0]);
                         var successMsg = Convert.ToString(result[1]);

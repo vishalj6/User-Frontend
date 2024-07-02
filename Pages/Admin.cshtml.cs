@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Newtonsoft.Json;
 using UsersProject.ApiSevices;
+using UsersProject.Middleware;
 using UsersProject.Models;
 
 namespace UsersProject.Pages
@@ -39,7 +40,7 @@ namespace UsersProject.Pages
             var response = await _webApis.AdminVaidationApiAsync(validateUserRequest);
             if (response.IsSuccessStatusCode)
             {
-                string returnedToken = await response.Content.ReadAsStringAsync();
+                string returnedToken = DecryptionHelper.DecryptString(await response.Content.ReadAsStringAsync());
                 Response.Cookies.Append("jwt_token", returnedToken, new CookieOptions
                 {
                     HttpOnly = false,

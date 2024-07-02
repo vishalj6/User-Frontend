@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Newtonsoft.Json;
 using UsersProject.ApiSevices;
+using UsersProject.Middleware;
 using UsersProject.Models;
 
 namespace UsersProject.Pages.UserFolder
@@ -48,30 +49,22 @@ namespace UsersProject.Pages.UserFolder
                     if (TempData["isUser"] != null && TempData["isUser"] as Boolean? == true)
                     {
                         TempData.Keep("isUser");
-
-                        if (Request.Cookies.TryGetValue("jwt_token", out var token))
+                        var response = await _webApis.UserUpdateApiAsync(user);
+                        if (response.IsSuccessStatusCode)
                         {
-                            var response = await _webApis.UserUpdateApiAsync(user, token: token);
-                            if (response.IsSuccessStatusCode)
-                            {
-                                string responseContent = await response.Content.ReadAsStringAsync();
-                                result = JsonConvert.DeserializeObject<List<string>>(responseContent);
-                                //result = objUser.UpdateUsers(user);
-                            }
-                            else
-                            {
-                                // Handle failed API call (e.g., log error)
-                                TempData["isSuccess"] = false;
-                                TempData["SuccessMSG"] = "Error occurred while Updating user.";
-                                return RedirectToPage("./CreateUsers");
-                            }
-                            isSuccess = Convert.ToBoolean(result[0]);
-                            successMsg = Convert.ToString(result[1]);
+                            string responseContent = DecryptionHelper.DecryptString(await response.Content.ReadAsStringAsync());
+                            result = JsonConvert.DeserializeObject<List<string>>(responseContent);
+                            //result = objUser.UpdateUsers(user);
                         }
                         else
                         {
-                            return Unauthorized();
+                            // Handle failed API call (e.g., log error)
+                            TempData["isSuccess"] = false;
+                            TempData["SuccessMSG"] = "Error occurred while Updating user.";
+                            return RedirectToPage("./CreateUsers");
                         }
+                        isSuccess = Convert.ToBoolean(result[0]);
+                        successMsg = Convert.ToString(result[1]);
                     }
                     else
                     {
@@ -80,7 +73,7 @@ namespace UsersProject.Pages.UserFolder
 
                         if (response.IsSuccessStatusCode)
                         {
-                            string responseContent = await response.Content.ReadAsStringAsync();
+                            string responseContent = DecryptionHelper.DecryptString(await response.Content.ReadAsStringAsync());
                             result = JsonConvert.DeserializeObject<List<string>>(responseContent);
                             // Handle successful API response (e.g., parse response data)
                         }
@@ -108,9 +101,19 @@ namespace UsersProject.Pages.UserFolder
                         }
                         else
                         {
+                            //TempData["UserName"] = result[3];
+                            var token = result[5].ToString();
+                            Response.Cookies.Append("jwt_token", token, new CookieOptions
+                            {
+                                HttpOnly = false,
+                                Secure = true,
+                                Expires = DateTime.UtcNow.AddHours(1)
+                            });
+                            TempData.Clear();
                             TempData["isUser"] = true;
                             TempData["UserId"] = result[2];
-                            //TempData["UserName"] = result[3];
+                            TempData["UserName"] = result[3];
+                            TempData["UserPassword"] = result[4];
                             return RedirectToPage("./UserDetails", new { id = result[2] });
                         }
                     }

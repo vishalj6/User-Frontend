@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Newtonsoft.Json;
 using System.ComponentModel.DataAnnotations;
 using UsersProject.ApiSevices;
+using UsersProject.Middleware;
 
 namespace UsersProject.Pages.UserFolder
 {
@@ -40,7 +41,7 @@ namespace UsersProject.Pages.UserFolder
                     //string otp = objUser.SendOTPEmail(userEmail, "");
                     TempData["OTP"] = otp;
 
-                    TempData["UserId"] = await _webApis.UserVaidationByMailApiAsync(userEmail);
+                    TempData["UserId"] = UserID;
                     //TempData["UserId"] = objUser.ValidateUserByEmail(userEmail);
 
                     return RedirectToPage("./OtpVerification", new { isResetPassword = "true" });
@@ -64,41 +65,33 @@ namespace UsersProject.Pages.UserFolder
                 }
                 if (UserId != 0)
                 {
-
-                    if (Request.Cookies.TryGetValue("jwt_token", out var token))
+                    var response = await _webApis.UserUpdateApiAsync(UserId: UserId, Password: Password);
+                    if (response.IsSuccessStatusCode)
                     {
-                        var response = await _webApis.UserUpdateApiAsync(UserId: UserId, Password: Password, token:token);
-                        if (response.IsSuccessStatusCode)
+                        string responseContent = DecryptionHelper.DecryptString(await response.Content.ReadAsStringAsync());
+                        var result = JsonConvert.DeserializeObject<List<string>>(responseContent);
+
+                        var isSuccess = Convert.ToBoolean(result[0]);
+                        var successMsg = Convert.ToString(result[1]);
+
+                        TempData["isSuccess"] = isSuccess;
+                        TempData["SuccessMSG"] = successMsg;
+
+                        var isUser = TempData["isUser"] as bool? ?? false;
+                        TempData.Keep("isUser");
+
+                        if (isSuccess && !isUser)
                         {
-                            string responseContent = await response.Content.ReadAsStringAsync();
-                            var result = JsonConvert.DeserializeObject<List<string>>(responseContent);
-
-                            var isSuccess = Convert.ToBoolean(result[0]);
-                            var successMsg = Convert.ToString(result[1]);
-
-                            TempData["isSuccess"] = isSuccess;
-                            TempData["SuccessMSG"] = successMsg;
-
-                            var isUser = TempData["isUser"] as bool? ?? false;
-                            TempData.Keep("isUser");
-
-                            if (isUser)
-                            {
-                                return RedirectToPage("./UserDetails", new { id = result[2] });
-                            }
-
-                            return RedirectToPage("./UserIndex");
+                            return RedirectToPage("./UserDetails", new { id = result[2] });
                         }
-                        else
-                        {
-                            TempData["isSuccess"] = false;
-                            TempData["SuccessMSG"] = "Error occurred while updating user.";
-                            return RedirectToPage("./CreateUsers");
-                        }
+
+                        return RedirectToPage("./UserIndex");
                     }
                     else
                     {
-                        return Unauthorized();
+                        TempData["isSuccess"] = false;
+                        TempData["SuccessMSG"] = "Error occurred while updating user.";
+                        return RedirectToPage("./CreateUsers");
                     }
                 }
                 else

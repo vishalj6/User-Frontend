@@ -55,10 +55,7 @@ namespace UsersProject.Pages.UserFolder
 
         private async Task PopulateCitySelectListAsync()
         {
-            if (Request.Cookies.TryGetValue("jwt_token", out var token))
-            {
-                City = new SelectList(await _webApis.GetCitiesApiAsync(token));
-            }
+            City = new SelectList(await _webApis.GetCitiesApiAsync());
         }
 
     }

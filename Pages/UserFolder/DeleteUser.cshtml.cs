@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Newtonsoft.Json;
 using UsersProject.ApiSevices;
+using UsersProject.Middleware;
 using UsersProject.Models;
 
 namespace UsersProject.Pages.UserFolder
@@ -71,7 +72,7 @@ namespace UsersProject.Pages.UserFolder
                 var response = await _webApis.DeleteOnePersonApiAsync(id, token);
                 if (response.IsSuccessStatusCode)
                 {
-                    string responseContent = await response.Content.ReadAsStringAsync();
+                    string responseContent = DecryptionHelper.DecryptString(await response.Content.ReadAsStringAsync());
                     var result = JsonConvert.DeserializeObject<List<string>>(responseContent);
                     // Handle successful API response (e.g., parse response data)
                     bool isSuccess = Convert.ToBoolean(result[0]);

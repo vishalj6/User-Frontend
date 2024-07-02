@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Newtonsoft.Json;
 using UsersProject.ApiSevices;
+using UsersProject.Middleware;
 using UsersProject.Models;
 
 namespace UsersProject.Pages.UserFolder
@@ -34,7 +35,7 @@ namespace UsersProject.Pages.UserFolder
 
             if (response.IsSuccessStatusCode)
             {
-                string responseContent = await response.Content.ReadAsStringAsync();
+                string responseContent = DecryptionHelper.DecryptString(await response.Content.ReadAsStringAsync());
                 TempData["isDeleteAll"] = true; // Set TempData to indicate confirmation
             }
             else
