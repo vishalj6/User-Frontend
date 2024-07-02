@@ -16,36 +16,36 @@ This is a Role-Based User Management System built with ASP.NET Core. It provides
 ## Demo
 
 ### Admin Login
-![Admin Login](https://github.com/vishalj6/User-Frontend/assets/99495355/26dd9b63-5d3c-46d0-b0c3-86a2082860a6)
+<img src="https://github.com/vishalj6/User-Frontend/assets/99495355/26dd9b63-5d3c-46d0-b0c3-86a2082860a6" width="400">
 
 ### User Login
-![User Login](https://github.com/vishalj6/User-Frontend/assets/99495355/4a518028-d7cf-4384-bee7-4457961d99cd)
+<img src="https://github.com/vishalj6/User-Frontend/assets/99495355/4a518028-d7cf-4384-bee7-4457961d99cd" width="400">
 
 ### Forgot Password
-![Forgot Password](https://github.com/vishalj6/User-Frontend/assets/99495355/81a11895-2362-4921-be74-c23fc5829e5c)
+<img src="https://github.com/vishalj6/User-Frontend/assets/99495355/81a11895-2362-4921-be74-c23fc5829e5c" width="400">
 
 ### Create User (Sign Up)
-![Create User](https://github.com/vishalj6/User-Frontend/assets/99495355/7f361a2a-8256-4780-a125-e420e808dea2)
+<img src="https://github.com/vishalj6/User-Frontend/assets/99495355/7f361a2a-8256-4780-a125-e420e808dea2" width="400">
 
 ### OTP Verification
-![OTP Verification](https://github.com/vishalj6/User-Frontend/assets/99495355/52b4eb7c-df97-4a9c-9288-add80e182742)
-![OTP Verification](https://github.com/vishalj6/User-Frontend/assets/99495355/9d9dc67b-cd7d-45f2-9fbb-fbff0c542601)
+<img src="https://github.com/vishalj6/User-Frontend/assets/99495355/52b4eb7c-df97-4a9c-9288-add80e182742" width="400">
+<img src="https://github.com/vishalj6/User-Frontend/assets/99495355/9d9dc67b-cd7d-45f2-9fbb-fbff0c542601" width="400">
 
 ### Edit User
-![Edit User](https://github.com/vishalj6/User-Frontend/assets/99495355/d0fcb437-2454-4499-be61-a820470e97ad)
+<img src="https://github.com/vishalj6/User-Frontend/assets/99495355/d0fcb437-2454-4499-be61-a820470e97ad" width="400">
 
 ### Delete User
-![Delete User](https://github.com/vishalj6/User-Frontend/assets/99495355/70ae1753-fdfe-4cf1-b142-60f35a23da03)
+<img src="https://github.com/vishalj6/User-Frontend/assets/99495355/70ae1753-fdfe-4cf1-b142-60f35a23da03" width="400">
 
 ### Admin Dashboard
-![Admin Dashboard](https://github.com/vishalj6/User-Frontend/assets/99495355/220bea70-4bef-4878-8802-94dca895ad05)
+<img src="https://github.com/vishalj6/User-Frontend/assets/99495355/220bea70-4bef-4878-8802-94dca895ad05" width="400">
 
 ## Installation
 
 1. **Clone the repository:**
     ```bash
-    git clone https://github.com/vishalj6/your-repo-name.git
-    cd your-repo-name
+    git clone https://github.com/vishalj6/User-Frontend.git
+    cd User-Frontend
     ```
 
 2. **Set up the database:**
