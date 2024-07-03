@@ -15,30 +15,34 @@ This is a Role-Based User Management System built with ASP.NET Core. It provides
 
 ## Demo
 
-### Admin Login
-<img src="https://github.com/vishalj6/User-Frontend/assets/99495355/26dd9b63-5d3c-46d0-b0c3-86a2082860a6" width="400">
+### Admin Login and User Login
+<p float="left">
+  <img src="https://github.com/vishalj6/User-Frontend/assets/99495355/26dd9b63-5d3c-46d0-b0c3-86a2082860a6" width="400">
+  <img src="https://github.com/vishalj6/User-Frontend/assets/99495355/4a518028-d7cf-4384-bee7-4457961d99cd" width="400">
+</p>
 
-### User Login
-<img src="https://github.com/vishalj6/User-Frontend/assets/99495355/4a518028-d7cf-4384-bee7-4457961d99cd" width="400">
-
-### Forgot Password
-<img src="https://github.com/vishalj6/User-Frontend/assets/99495355/81a11895-2362-4921-be74-c23fc5829e5c" width="400">
-
-### Create User (Sign Up)
-<img src="https://github.com/vishalj6/User-Frontend/assets/99495355/7f361a2a-8256-4780-a125-e420e808dea2" width="400">
+### Forgot Password and Create User (Sign Up)
+<p float="left">
+  <img src="https://github.com/vishalj6/User-Frontend/assets/99495355/81a11895-2362-4921-be74-c23fc5829e5c" width="400">
+  <img src="https://github.com/vishalj6/User-Frontend/assets/99495355/7f361a2a-8256-4780-a125-e420e808dea2" width="400">
+</p>
 
 ### OTP Verification
-<img src="https://github.com/vishalj6/User-Frontend/assets/99495355/52b4eb7c-df97-4a9c-9288-add80e182742" width="400">
-<img src="https://github.com/vishalj6/User-Frontend/assets/99495355/9d9dc67b-cd7d-45f2-9fbb-fbff0c542601" width="400">
+<p float="left">
+  <img src="https://github.com/vishalj6/User-Frontend/assets/99495355/52b4eb7c-df97-4a9c-9288-add80e182742" width="400">
+  <img src="https://github.com/vishalj6/User-Frontend/assets/99495355/9d9dc67b-cd7d-45f2-9fbb-fbff0c542601" width="400">
+</p>
 
-### Edit User
-<img src="https://github.com/vishalj6/User-Frontend/assets/99495355/d0fcb437-2454-4499-be61-a820470e97ad" width="400">
-
-### Delete User
-<img src="https://github.com/vishalj6/User-Frontend/assets/99495355/70ae1753-fdfe-4cf1-b142-60f35a23da03" width="400">
+### Edit User and Delete User
+<p float="left">
+  <img src="https://github.com/vishalj6/User-Frontend/assets/99495355/d0fcb437-2454-4499-be61-a820470e97ad" width="400">
+  <img src="https://github.com/vishalj6/User-Frontend/assets/99495355/70ae1753-fdfe-4cf1-b142-60f35a23da03" width="400">
+</p>
 
 ### Admin Dashboard
-<img src="https://github.com/vishalj6/User-Frontend/assets/99495355/220bea70-4bef-4878-8802-94dca895ad05" width="400">
+<p float="left">
+  <img src="https://github.com/vishalj6/User-Frontend/assets/99495355/220bea70-4bef-4878-8802-94dca895ad05" width="400">
+</p>
 
 ## Installation
 
@@ -51,9 +55,6 @@ This is a Role-Based User Management System built with ASP.NET Core. It provides
 2. **Set up the database:**
     - Update the connection string in `appsettings.json` to point to your database.
     - Apply migrations to create the database schema:
-    ```bash
-    dotnet ef database update
-    ```
 
 3. **Run the application:**
     ```bash
@@ -68,37 +69,40 @@ This is a Role-Based User Management System built with ASP.NET Core. It provides
 ## Usage
 
 1. **Admin Login:**
-    - Navigate to `/admin-login`
+    - Navigate to `/Admin`
     - Enter admin credentials
 
 2. **User Login:**
-    - Navigate to `/login`
+    - Navigate to `/Index`
     - Enter user credentials
 
 3. **Forgot Password:**
-    - Navigate to `/forgot-password`
+    - Navigate to `/forgotPassword`
     - Enter registered email address
 
 4. **Create User (Sign Up):**
-    - Navigate to `/sign-up`
+    - Navigate to `/CreateUsers`
     - Fill in the required details and complete OTP verification
 
 5. **Edit User:**
-    - Navigate to `/edit-user`
+    - Navigate to `/EditUser`
     - Update user information
 
 6. **Delete User:**
-    - Navigate to `/delete-user`
+    - Navigate to `/DeleteUser`
     - Confirm account deletion
 
 7. **Admin Dashboard:**
-    - Navigate to `/admin-dashboard`
+    - Navigate to `/AdminDashboard`
     - Manage users (create, edit, delete, delete all)
+
+8. **Otp Verification:**
+    - Navigate to `/OtpVerification`
+    - verify OTP while creating user or changing email
 
 ## Technologies Used
 
 - **ASP.NET Core**
-- **Entity Framework Core**
 - **JWT Token Authentication**
 - **SQL Server**
 
@@ -110,9 +114,6 @@ This is a Role-Based User Management System built with ASP.NET Core. It provides
 4. Push to your branch.
 5. Create a new Pull Request.
 
-## License
-
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
 
 ## Contact
 
