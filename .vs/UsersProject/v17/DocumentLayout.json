@@ -3,12 +3,40 @@
   "WorkspaceRootPath": "E:\\C sharp\\UsersProject for Dot net\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{F8E24AD5-0C10-4E41-971B-FFCA7F1FCD8E}|UsersProject.csproj|e:\\c sharp\\usersproject for dot net\\pages\\admin.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F8E24AD5-0C10-4E41-971B-FFCA7F1FCD8E}|UsersProject.csproj|solutionrelative:pages\\admin.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{F8E24AD5-0C10-4E41-971B-FFCA7F1FCD8E}|UsersProject.csproj|e:\\c sharp\\usersproject for dot net\\pages\\userfolder\\createusers.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{F8E24AD5-0C10-4E41-971B-FFCA7F1FCD8E}|UsersProject.csproj|solutionrelative:pages\\userfolder\\createusers.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F8E24AD5-0C10-4E41-971B-FFCA7F1FCD8E}|UsersProject.csproj|e:\\c sharp\\usersproject for dot net\\pages\\userfolder\\createusers.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F8E24AD5-0C10-4E41-971B-FFCA7F1FCD8E}|UsersProject.csproj|solutionrelative:pages\\userfolder\\createusers.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F8E24AD5-0C10-4E41-971B-FFCA7F1FCD8E}|UsersProject.csproj|e:\\c sharp\\usersproject for dot net\\pages\\userfolder\\otpverification.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F8E24AD5-0C10-4E41-971B-FFCA7F1FCD8E}|UsersProject.csproj|solutionrelative:pages\\userfolder\\otpverification.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F8E24AD5-0C10-4E41-971B-FFCA7F1FCD8E}|UsersProject.csproj|e:\\c sharp\\usersproject for dot net\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F8E24AD5-0C10-4E41-971B-FFCA7F1FCD8E}|UsersProject.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{F8E24AD5-0C10-4E41-971B-FFCA7F1FCD8E}|UsersProject.csproj|e:\\c sharp\\usersproject for dot net\\apisevices\\webapis.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{F8E24AD5-0C10-4E41-971B-FFCA7F1FCD8E}|UsersProject.csproj|solutionrelative:apisevices\\webapis.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F8E24AD5-0C10-4E41-971B-FFCA7F1FCD8E}|UsersProject.csproj|e:\\c sharp\\usersproject for dot net\\pages\\admin.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F8E24AD5-0C10-4E41-971B-FFCA7F1FCD8E}|UsersProject.csproj|solutionrelative:pages\\admin.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F8E24AD5-0C10-4E41-971B-FFCA7F1FCD8E}|UsersProject.csproj|e:\\c sharp\\usersproject for dot net\\wwwroot\\css\\site.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{F8E24AD5-0C10-4E41-971B-FFCA7F1FCD8E}|UsersProject.csproj|solutionrelative:wwwroot\\css\\site.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F8E24AD5-0C10-4E41-971B-FFCA7F1FCD8E}|UsersProject.csproj|e:\\c sharp\\usersproject for dot net\\usersproject.csproj||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|",
+      "RelativeMoniker": "D:0:0:{F8E24AD5-0C10-4E41-971B-FFCA7F1FCD8E}|UsersProject.csproj|solutionrelative:usersproject.csproj||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F8E24AD5-0C10-4E41-971B-FFCA7F1FCD8E}|UsersProject.csproj|e:\\c sharp\\usersproject for dot net\\pages\\userfolder\\edituser.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{F8E24AD5-0C10-4E41-971B-FFCA7F1FCD8E}|UsersProject.csproj|solutionrelative:pages\\userfolder\\edituser.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{F8E24AD5-0C10-4E41-971B-FFCA7F1FCD8E}|UsersProject.csproj|e:\\c sharp\\usersproject for dot net\\pages\\userfolder\\userindex.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -21,14 +49,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{F8E24AD5-0C10-4E41-971B-FFCA7F1FCD8E}|UsersProject.csproj|e:\\c sharp\\usersproject for dot net\\pages\\userfolder\\forgotpassword.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{F8E24AD5-0C10-4E41-971B-FFCA7F1FCD8E}|UsersProject.csproj|solutionrelative:pages\\userfolder\\forgotpassword.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F8E24AD5-0C10-4E41-971B-FFCA7F1FCD8E}|UsersProject.csproj|e:\\c sharp\\usersproject for dot net\\pages\\userfolder\\createusers.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F8E24AD5-0C10-4E41-971B-FFCA7F1FCD8E}|UsersProject.csproj|solutionrelative:pages\\userfolder\\createusers.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F8E24AD5-0C10-4E41-971B-FFCA7F1FCD8E}|UsersProject.csproj|e:\\c sharp\\usersproject for dot net\\pages\\userfolder\\otpverification.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F8E24AD5-0C10-4E41-971B-FFCA7F1FCD8E}|UsersProject.csproj|solutionrelative:pages\\userfolder\\otpverification.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{F8E24AD5-0C10-4E41-971B-FFCA7F1FCD8E}|UsersProject.csproj|e:\\c sharp\\usersproject for dot net\\pages\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
@@ -67,10 +87,6 @@
       "RelativeMoniker": "D:0:0:{F8E24AD5-0C10-4E41-971B-FFCA7F1FCD8E}|UsersProject.csproj|solutionrelative:models\\filterdata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{F8E24AD5-0C10-4E41-971B-FFCA7F1FCD8E}|UsersProject.csproj|e:\\c sharp\\usersproject for dot net\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F8E24AD5-0C10-4E41-971B-FFCA7F1FCD8E}|UsersProject.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{F8E24AD5-0C10-4E41-971B-FFCA7F1FCD8E}|UsersProject.csproj|e:\\c sharp\\usersproject for dot net\\pages\\userfolder\\userdetails.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{F8E24AD5-0C10-4E41-971B-FFCA7F1FCD8E}|UsersProject.csproj|solutionrelative:pages\\userfolder\\userdetails.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -91,14 +107,6 @@
       "RelativeMoniker": "D:0:0:{F8E24AD5-0C10-4E41-971B-FFCA7F1FCD8E}|UsersProject.csproj|solutionrelative:properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{F8E24AD5-0C10-4E41-971B-FFCA7F1FCD8E}|UsersProject.csproj|e:\\c sharp\\usersproject for dot net\\pages\\userfolder\\edituser.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{F8E24AD5-0C10-4E41-971B-FFCA7F1FCD8E}|UsersProject.csproj|solutionrelative:pages\\userfolder\\edituser.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F8E24AD5-0C10-4E41-971B-FFCA7F1FCD8E}|UsersProject.csproj|e:\\c sharp\\usersproject for dot net\\wwwroot\\css\\site.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
-      "RelativeMoniker": "D:0:0:{F8E24AD5-0C10-4E41-971B-FFCA7F1FCD8E}|UsersProject.csproj|solutionrelative:wwwroot\\css\\site.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{F8E24AD5-0C10-4E41-971B-FFCA7F1FCD8E}|UsersProject.csproj|e:\\c sharp\\usersproject for dot net\\pages\\userfolder\\userdetails.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{F8E24AD5-0C10-4E41-971B-FFCA7F1FCD8E}|UsersProject.csproj|solutionrelative:pages\\userfolder\\userdetails.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
@@ -109,10 +117,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{F8E24AD5-0C10-4E41-971B-FFCA7F1FCD8E}|UsersProject.csproj|e:\\c sharp\\usersproject for dot net\\pages\\admin.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{F8E24AD5-0C10-4E41-971B-FFCA7F1FCD8E}|UsersProject.csproj|solutionrelative:pages\\admin.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F8E24AD5-0C10-4E41-971B-FFCA7F1FCD8E}|UsersProject.csproj|e:\\c sharp\\usersproject for dot net\\pages\\userfolder\\createusers.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{F8E24AD5-0C10-4E41-971B-FFCA7F1FCD8E}|UsersProject.csproj|solutionrelative:pages\\userfolder\\createusers.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{F8E24AD5-0C10-4E41-971B-FFCA7F1FCD8E}|UsersProject.csproj|e:\\c sharp\\usersproject for dot net\\pages\\userfolder\\forgotpassword.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
@@ -146,7 +150,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 4,
+          "SelectedChildIndex": 7,
           "Children": [
             {
               "$type": "Bookmark",
@@ -158,7 +162,59 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
+              "Title": "WebApis.cs",
+              "DocumentMoniker": "E:\\C sharp\\UsersProject for Dot net\\ApiSevices\\WebApis.cs",
+              "RelativeDocumentMoniker": "ApiSevices\\WebApis.cs",
+              "ToolTip": "E:\\C sharp\\UsersProject for Dot net\\ApiSevices\\WebApis.cs",
+              "RelativeToolTip": "ApiSevices\\WebApis.cs",
+              "ViewState": "AQIAAFAAAAAAAAAAAAAuwF4AAABIAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-18T04:52:14.132Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "OtpVerification.cshtml.cs",
+              "DocumentMoniker": "E:\\C sharp\\UsersProject for Dot net\\Pages\\UserFolder\\OtpVerification.cshtml.cs",
+              "RelativeDocumentMoniker": "Pages\\UserFolder\\OtpVerification.cshtml.cs",
+              "ToolTip": "E:\\C sharp\\UsersProject for Dot net\\Pages\\UserFolder\\OtpVerification.cshtml.cs",
+              "RelativeToolTip": "Pages\\UserFolder\\OtpVerification.cshtml.cs",
+              "ViewState": "AQIAADsAAAAAAAAAAIAwwEcAAAAaAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-23T13:00:48.68Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "site.css",
+              "DocumentMoniker": "E:\\C sharp\\UsersProject for Dot net\\wwwroot\\css\\site.css",
+              "RelativeDocumentMoniker": "wwwroot\\css\\site.css",
+              "ToolTip": "E:\\C sharp\\UsersProject for Dot net\\wwwroot\\css\\site.css",
+              "RelativeToolTip": "wwwroot\\css\\site.css",
+              "ViewState": "AQIAAAMBAAAAAAAAAAAAABwBAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2024-05-13T09:11:35.279Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "EditUser.cshtml",
+              "DocumentMoniker": "E:\\C sharp\\UsersProject for Dot net\\Pages\\UserFolder\\EditUser.cshtml",
+              "RelativeDocumentMoniker": "Pages\\UserFolder\\EditUser.cshtml",
+              "ToolTip": "E:\\C sharp\\UsersProject for Dot net\\Pages\\UserFolder\\EditUser.cshtml",
+              "RelativeToolTip": "Pages\\UserFolder\\EditUser.cshtml",
+              "ViewState": "AQIAAAsAAAAAAAAAAAAQwBUAAABtAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-05-20T10:31:00.912Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
               "Title": "Index.cshtml.cs",
               "DocumentMoniker": "E:\\C sharp\\UsersProject for Dot net\\Pages\\Index.cshtml.cs",
               "RelativeDocumentMoniker": "Pages\\Index.cshtml.cs",
@@ -166,12 +222,75 @@
               "RelativeToolTip": "Pages\\Index.cshtml.cs",
               "ViewState": "AQIAABYAAAAAAAAAAAAwwDAAAAA7AAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-21T12:52:37.037Z",
+              "WhenOpened": "2024-05-21T12:52:37.037Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "CreateUsers.cshtml",
+              "DocumentMoniker": "E:\\C sharp\\UsersProject for Dot net\\Pages\\UserFolder\\CreateUsers.cshtml",
+              "RelativeDocumentMoniker": "Pages\\UserFolder\\CreateUsers.cshtml",
+              "ToolTip": "E:\\C sharp\\UsersProject for Dot net\\Pages\\UserFolder\\CreateUsers.cshtml",
+              "RelativeToolTip": "Pages\\UserFolder\\CreateUsers.cshtml",
+              "ViewState": "AQIAAC8AAAAAAAAAAAAQwDoAAAAmAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-05-20T10:30:53.542Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 1,
+              "Title": "createUsers.cshtml.cs",
+              "DocumentMoniker": "E:\\C sharp\\UsersProject for Dot net\\Pages\\UserFolder\\createUsers.cshtml.cs",
+              "RelativeDocumentMoniker": "Pages\\UserFolder\\createUsers.cshtml.cs",
+              "ToolTip": "E:\\C sharp\\UsersProject for Dot net\\Pages\\UserFolder\\createUsers.cshtml.cs",
+              "RelativeToolTip": "Pages\\UserFolder\\createUsers.cshtml.cs",
+              "ViewState": "AQIAABwAAAAAAAAAAAAcwDAAAABWAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-22T07:03:17.398Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Admin.cshtml.cs",
+              "DocumentMoniker": "E:\\C sharp\\UsersProject for Dot net\\Pages\\Admin.cshtml.cs",
+              "RelativeDocumentMoniker": "Pages\\Admin.cshtml.cs",
+              "ToolTip": "E:\\C sharp\\UsersProject for Dot net\\Pages\\Admin.cshtml.cs",
+              "RelativeToolTip": "Pages\\Admin.cshtml.cs",
+              "ViewState": "AQIAAB4AAAAAAAAAAIA1wCgAAAAMAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-21T11:28:00.23Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Program.cs",
+              "DocumentMoniker": "E:\\C sharp\\UsersProject for Dot net\\Program.cs",
+              "RelativeDocumentMoniker": "Program.cs",
+              "ToolTip": "E:\\C sharp\\UsersProject for Dot net\\Program.cs",
+              "RelativeToolTip": "Program.cs",
+              "ViewState": "AQIAAAMAAAAAAAAAAAAAABAAAAArAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-29T07:30:14.909Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "forgotPassword.cshtml.cs",
+              "DocumentMoniker": "E:\\C sharp\\UsersProject for Dot net\\Pages\\UserFolder\\forgotPassword.cshtml.cs",
+              "RelativeDocumentMoniker": "Pages\\UserFolder\\forgotPassword.cshtml.cs",
+              "ToolTip": "E:\\C sharp\\UsersProject for Dot net\\Pages\\UserFolder\\forgotPassword.cshtml.cs",
+              "RelativeToolTip": "Pages\\UserFolder\\forgotPassword.cshtml.cs",
+              "ViewState": "AQIAABkAAAAAAAAAAAAcwCUAAAAgAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-29T09:41:07.102Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
               "Title": "DeleteUser.cshtml.cs",
               "DocumentMoniker": "E:\\C sharp\\UsersProject for Dot net\\Pages\\UserFolder\\DeleteUser.cshtml.cs",
               "RelativeDocumentMoniker": "Pages\\UserFolder\\DeleteUser.cshtml.cs",
@@ -183,59 +302,19 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "Admin.cshtml.cs",
-              "DocumentMoniker": "E:\\C sharp\\UsersProject for Dot net\\Pages\\Admin.cshtml.cs",
-              "RelativeDocumentMoniker": "Pages\\Admin.cshtml.cs",
-              "ToolTip": "E:\\C sharp\\UsersProject for Dot net\\Pages\\Admin.cshtml.cs",
-              "RelativeToolTip": "Pages\\Admin.cshtml.cs",
-              "ViewState": "AQIAAB4AAAAAAAAAAAAhwCgAAAAMAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-21T11:28:00.23Z",
+              "DocumentIndex": 7,
+              "Title": "UsersProject",
+              "DocumentMoniker": "E:\\C sharp\\UsersProject for Dot net\\UsersProject.csproj",
+              "RelativeDocumentMoniker": "UsersProject.csproj",
+              "ToolTip": "E:\\C sharp\\UsersProject for Dot net\\UsersProject.csproj",
+              "RelativeToolTip": "UsersProject.csproj",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2024-07-09T05:00:36.288Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "WebApis.cs",
-              "DocumentMoniker": "E:\\C sharp\\UsersProject for Dot net\\ApiSevices\\WebApis.cs",
-              "RelativeDocumentMoniker": "ApiSevices\\WebApis.cs",
-              "ToolTip": "E:\\C sharp\\UsersProject for Dot net\\ApiSevices\\WebApis.cs",
-              "RelativeToolTip": "ApiSevices\\WebApis.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABAAAAAIAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-18T04:52:14.132Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "forgotPassword.cshtml.cs",
-              "DocumentMoniker": "E:\\C sharp\\UsersProject for Dot net\\Pages\\UserFolder\\forgotPassword.cshtml.cs",
-              "RelativeDocumentMoniker": "Pages\\UserFolder\\forgotPassword.cshtml.cs",
-              "ToolTip": "E:\\C sharp\\UsersProject for Dot net\\Pages\\UserFolder\\forgotPassword.cshtml.cs",
-              "RelativeToolTip": "Pages\\UserFolder\\forgotPassword.cshtml.cs",
-              "ViewState": "AQIAABkAAAAAAAAAAAAcwCUAAAAgAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-29T09:41:07.102Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "OtpVerification.cshtml.cs",
-              "DocumentMoniker": "E:\\C sharp\\UsersProject for Dot net\\Pages\\UserFolder\\OtpVerification.cshtml.cs",
-              "RelativeDocumentMoniker": "Pages\\UserFolder\\OtpVerification.cshtml.cs",
-              "ToolTip": "E:\\C sharp\\UsersProject for Dot net\\Pages\\UserFolder\\OtpVerification.cshtml.cs",
-              "RelativeToolTip": "Pages\\UserFolder\\OtpVerification.cshtml.cs",
-              "ViewState": "AQIAACYAAAAAAAAAAIAwwDEAAAAVAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-23T13:00:48.68Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 13,
               "Title": "DeleteAll.cshtml.cs",
               "DocumentMoniker": "E:\\C sharp\\UsersProject for Dot net\\Pages\\UserFolder\\DeleteAll.cshtml.cs",
               "RelativeDocumentMoniker": "Pages\\UserFolder\\DeleteAll.cshtml.cs",
@@ -247,7 +326,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 9,
               "Title": "UserIndex.cshtml.cs",
               "DocumentMoniker": "E:\\C sharp\\UsersProject for Dot net\\Pages\\UserFolder\\UserIndex.cshtml.cs",
               "RelativeDocumentMoniker": "Pages\\UserFolder\\UserIndex.cshtml.cs",
@@ -255,25 +334,11 @@
               "RelativeToolTip": "Pages\\UserFolder\\UserIndex.cshtml.cs",
               "ViewState": "AQIAACgAAAAAAAAAAIA5wD4AAAAIAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-21T05:05:17.979Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-05-21T05:05:17.979Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "createUsers.cshtml.cs",
-              "DocumentMoniker": "E:\\C sharp\\UsersProject for Dot net\\Pages\\UserFolder\\createUsers.cshtml.cs",
-              "RelativeDocumentMoniker": "Pages\\UserFolder\\createUsers.cshtml.cs",
-              "ToolTip": "E:\\C sharp\\UsersProject for Dot net\\Pages\\UserFolder\\createUsers.cshtml.cs",
-              "RelativeToolTip": "Pages\\UserFolder\\createUsers.cshtml.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAADMAAAAkAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-22T07:03:17.398Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 12,
               "Title": "Index.cshtml",
               "DocumentMoniker": "E:\\C sharp\\UsersProject for Dot net\\Pages\\Index.cshtml",
               "RelativeDocumentMoniker": "Pages\\Index.cshtml",
@@ -285,7 +350,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 15,
               "Title": "DecryptionHelper.cs",
               "DocumentMoniker": "E:\\C sharp\\UsersProject for Dot net\\Decryption\\DecryptionHelper.cs",
               "RelativeDocumentMoniker": "Decryption\\DecryptionHelper.cs",
@@ -297,7 +362,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 16,
               "Title": "EditUser.cshtml.cs",
               "DocumentMoniker": "E:\\C sharp\\UsersProject for Dot net\\Pages\\UserFolder\\EditUser.cshtml.cs",
               "RelativeDocumentMoniker": "Pages\\UserFolder\\EditUser.cshtml.cs",
@@ -309,7 +374,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 17,
               "Title": "ValidateUserRequest.cs",
               "DocumentMoniker": "E:\\C sharp\\UsersProject for Dot net\\Models\\ValidateUserRequest.cs",
               "RelativeDocumentMoniker": "Models\\ValidateUserRequest.cs",
@@ -321,7 +386,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 18,
               "Title": "DecryptionHandler.cs",
               "DocumentMoniker": "E:\\C sharp\\UsersProject for Dot net\\Decryption\\DecryptionHandler.cs",
               "RelativeDocumentMoniker": "Decryption\\DecryptionHandler.cs",
@@ -333,7 +398,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
+              "DocumentIndex": 19,
               "Title": "UserIndex.cshtml",
               "DocumentMoniker": "E:\\C sharp\\UsersProject for Dot net\\Pages\\UserFolder\\UserIndex.cshtml",
               "RelativeDocumentMoniker": "Pages\\UserFolder\\UserIndex.cshtml",
@@ -345,7 +410,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 15,
+              "DocumentIndex": 20,
               "Title": "FilterData.cs",
               "DocumentMoniker": "E:\\C sharp\\UsersProject for Dot net\\Models\\FilterData.cs",
               "RelativeDocumentMoniker": "Models\\FilterData.cs",
@@ -357,19 +422,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 16,
-              "Title": "Program.cs",
-              "DocumentMoniker": "E:\\C sharp\\UsersProject for Dot net\\Program.cs",
-              "RelativeDocumentMoniker": "Program.cs",
-              "ToolTip": "E:\\C sharp\\UsersProject for Dot net\\Program.cs",
-              "RelativeToolTip": "Program.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAC4AAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-29T07:30:14.909Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 17,
+              "DocumentIndex": 21,
               "Title": "UserDetails.cshtml.cs",
               "DocumentMoniker": "E:\\C sharp\\UsersProject for Dot net\\Pages\\UserFolder\\UserDetails.cshtml.cs",
               "RelativeDocumentMoniker": "Pages\\UserFolder\\UserDetails.cshtml.cs",
@@ -381,7 +434,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 18,
+              "DocumentIndex": 22,
               "Title": "DeleteAll.cshtml",
               "DocumentMoniker": "E:\\C sharp\\UsersProject for Dot net\\Pages\\UserFolder\\DeleteAll.cshtml",
               "RelativeDocumentMoniker": "Pages\\UserFolder\\DeleteAll.cshtml",
@@ -393,7 +446,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 19,
+              "DocumentIndex": 23,
               "Title": "_Layout.cshtml",
               "DocumentMoniker": "E:\\C sharp\\UsersProject for Dot net\\Pages\\Shared\\_Layout.cshtml",
               "RelativeDocumentMoniker": "Pages\\Shared\\_Layout.cshtml",
@@ -405,7 +458,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 20,
+              "DocumentIndex": 24,
               "Title": "PaginationUser.cs",
               "DocumentMoniker": "E:\\C sharp\\UsersProject for Dot net\\Models\\PaginationUser.cs",
               "RelativeDocumentMoniker": "Models\\PaginationUser.cs",
@@ -417,7 +470,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 33,
+              "DocumentIndex": 34,
               "Title": "site.js",
               "DocumentMoniker": "E:\\C sharp\\UsersProject for Dot net\\wwwroot\\js\\site.js",
               "RelativeDocumentMoniker": "wwwroot\\js\\site.js",
@@ -429,7 +482,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 29,
+              "DocumentIndex": 30,
               "Title": "DatabaseConnection.cs",
               "DocumentMoniker": "E:\\C sharp\\UsersProject for Dot net\\DatabaseConnection.cs",
               "RelativeDocumentMoniker": "DatabaseConnection.cs",
@@ -441,7 +494,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 25,
+              "DocumentIndex": 27,
               "Title": "UsersDataAccess.cs",
               "DocumentMoniker": "E:\\C sharp\\UsersProject for Dot net\\Models\\UsersDataAccess.cs",
               "RelativeDocumentMoniker": "Models\\UsersDataAccess.cs",
@@ -453,7 +506,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 21,
+              "DocumentIndex": 25,
               "Title": "launchSettings.json",
               "DocumentMoniker": "E:\\C sharp\\UsersProject for Dot net\\Properties\\launchSettings.json",
               "RelativeDocumentMoniker": "Properties\\launchSettings.json",
@@ -465,7 +518,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 28,
+              "DocumentIndex": 29,
               "Title": "forgotPassword.cshtml",
               "DocumentMoniker": "E:\\C sharp\\UsersProject for Dot net\\Pages\\UserFolder\\forgotPassword.cshtml",
               "RelativeDocumentMoniker": "Pages\\UserFolder\\forgotPassword.cshtml",
@@ -477,7 +530,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 30,
+              "DocumentIndex": 31,
               "Title": "UserPerson.cs",
               "DocumentMoniker": "E:\\C sharp\\UsersProject for Dot net\\Models\\UserPerson.cs",
               "RelativeDocumentMoniker": "Models\\UserPerson.cs",
@@ -489,19 +542,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 23,
-              "Title": "site.css",
-              "DocumentMoniker": "E:\\C sharp\\UsersProject for Dot net\\wwwroot\\css\\site.css",
-              "RelativeDocumentMoniker": "wwwroot\\css\\site.css",
-              "ToolTip": "E:\\C sharp\\UsersProject for Dot net\\wwwroot\\css\\site.css",
-              "RelativeToolTip": "wwwroot\\css\\site.css",
-              "ViewState": "AQIAAJkBAAAAAAAAAIBJwK8BAAARAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
-              "WhenOpened": "2024-05-13T09:11:35.279Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 31,
+              "DocumentIndex": 32,
               "Title": "OtpVerification.cshtml",
               "DocumentMoniker": "E:\\C sharp\\UsersProject for Dot net\\Pages\\UserFolder\\OtpVerification.cshtml",
               "RelativeDocumentMoniker": "Pages\\UserFolder\\OtpVerification.cshtml",
@@ -513,7 +554,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 26,
+              "DocumentIndex": 28,
               "Title": "Admin.cshtml",
               "DocumentMoniker": "E:\\C sharp\\UsersProject for Dot net\\Pages\\Admin.cshtml",
               "RelativeDocumentMoniker": "Pages\\Admin.cshtml",
@@ -525,7 +566,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 24,
+              "DocumentIndex": 26,
               "Title": "UserDetails.cshtml",
               "DocumentMoniker": "E:\\C sharp\\UsersProject for Dot net\\Pages\\UserFolder\\UserDetails.cshtml",
               "RelativeDocumentMoniker": "Pages\\UserFolder\\UserDetails.cshtml",
@@ -537,31 +578,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 27,
-              "Title": "CreateUsers.cshtml",
-              "DocumentMoniker": "E:\\C sharp\\UsersProject for Dot net\\Pages\\UserFolder\\CreateUsers.cshtml",
-              "RelativeDocumentMoniker": "Pages\\UserFolder\\CreateUsers.cshtml",
-              "ToolTip": "E:\\C sharp\\UsersProject for Dot net\\Pages\\UserFolder\\CreateUsers.cshtml",
-              "RelativeToolTip": "Pages\\UserFolder\\CreateUsers.cshtml",
-              "ViewState": "AQIAADwAAAAAAAAAAAAQwEkAAAAuAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-05-20T10:30:53.542Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 22,
-              "Title": "EditUser.cshtml",
-              "DocumentMoniker": "E:\\C sharp\\UsersProject for Dot net\\Pages\\UserFolder\\EditUser.cshtml",
-              "RelativeDocumentMoniker": "Pages\\UserFolder\\EditUser.cshtml",
-              "ToolTip": "E:\\C sharp\\UsersProject for Dot net\\Pages\\UserFolder\\EditUser.cshtml",
-              "RelativeToolTip": "Pages\\UserFolder\\EditUser.cshtml",
-              "ViewState": "AQIAAA0AAAAAAAAAAAAQwBcAAAAoAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-05-20T10:31:00.912Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 32,
+              "DocumentIndex": 33,
               "Title": "DeleteUser.cshtml",
               "DocumentMoniker": "E:\\C sharp\\UsersProject for Dot net\\Pages\\UserFolder\\DeleteUser.cshtml",
               "RelativeDocumentMoniker": "Pages\\UserFolder\\DeleteUser.cshtml",
