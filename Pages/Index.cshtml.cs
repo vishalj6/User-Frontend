@@ -42,9 +42,10 @@ namespace Users.Pages
             {
                 string responseContent = DecryptionHelper.DecryptString(await response.Content.ReadAsStringAsync());
                 var result = JsonConvert.DeserializeObject<Dictionary<string, object>>(responseContent);
+                var user = JsonConvert.DeserializeObject<Dictionary<string, object>>(result["user"].ToString());
                 try
                 {
-                    (int, string) isValidUserID = (Convert.ToInt32(result["userId"]), result["firstName"].ToString());
+                    (int, string) isValidUserID = (Convert.ToInt32(user["id"]), user["firstname"].ToString());
                     var token = result["token"].ToString();
                     Response.Cookies.Append("jwt_token", token, new CookieOptions
                     {

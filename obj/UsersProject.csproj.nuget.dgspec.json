@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "E:\\C sharp\\Users\\UsersProject.csproj": {}
+    "E:\\C sharp\\UsersProject for Dot net\\UsersProject.csproj": {}
   },
   "projects": {
-    "E:\\C sharp\\Users\\UsersProject.csproj": {
+    "E:\\C sharp\\UsersProject for Dot net\\UsersProject.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\C sharp\\Users\\UsersProject.csproj",
+        "projectUniqueName": "E:\\C sharp\\UsersProject for Dot net\\UsersProject.csproj",
         "projectName": "UsersProject",
-        "projectPath": "E:\\C sharp\\Users\\UsersProject.csproj",
+        "projectPath": "E:\\C sharp\\UsersProject for Dot net\\UsersProject.csproj",
         "packagesPath": "C:\\Users\\vishal.jadeja\\.nuget\\packages\\",
-        "outputPath": "E:\\C sharp\\Users\\obj\\",
+        "outputPath": "E:\\C sharp\\UsersProject for Dot net\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

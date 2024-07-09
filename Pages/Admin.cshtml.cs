@@ -41,7 +41,8 @@ namespace UsersProject.Pages
             if (response.IsSuccessStatusCode)
             {
                 string returnedToken = DecryptionHelper.DecryptString(await response.Content.ReadAsStringAsync());
-                Response.Cookies.Append("jwt_token", returnedToken, new CookieOptions
+                var returnedTokenString = JsonConvert.DeserializeObject<Dictionary<string, object>>(returnedToken);
+                Response.Cookies.Append("jwt_token", returnedTokenString["token"].ToString(), new CookieOptions
                 {
                     HttpOnly = false,
                     Secure = true,

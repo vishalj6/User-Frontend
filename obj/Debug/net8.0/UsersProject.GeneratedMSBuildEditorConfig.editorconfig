@@ -9,71 +9,71 @@ build_property.EnforceExtendedAnalyzerRules =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = UsersProject
 build_property.RootNamespace = UsersProject
-build_property.ProjectDir = E:\C sharp\Users\
+build_property.ProjectDir = E:\C sharp\UsersProject for Dot net\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 
 build_property.RazorLangVersion = 8.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = E:\C sharp\Users
+build_property.MSBuildProjectDirectory = E:\C sharp\UsersProject for Dot net
 build_property._RazorSourceGeneratorDebug = 
 
-[E:/C sharp/Users/Pages/Admin.cshtml]
+[E:/C sharp/UsersProject for Dot net/Pages/Admin.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW4uY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/C sharp/Users/Pages/Error.cshtml]
+[E:/C sharp/UsersProject for Dot net/Pages/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRXJyb3IuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/C sharp/Users/Pages/Index.cshtml]
+[E:/C sharp/UsersProject for Dot net/Pages/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/C sharp/Users/Pages/Shared/_ValidationScriptsPartial.cshtml]
+[E:/C sharp/UsersProject for Dot net/Pages/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/C sharp/Users/Pages/UserFolder/CreateUsers.cshtml]
+[E:/C sharp/UsersProject for Dot net/Pages/UserFolder/CreateUsers.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVXNlckZvbGRlclxDcmVhdGVVc2Vycy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/C sharp/Users/Pages/UserFolder/DeleteAll.cshtml]
+[E:/C sharp/UsersProject for Dot net/Pages/UserFolder/DeleteAll.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVXNlckZvbGRlclxEZWxldGVBbGwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/C sharp/Users/Pages/UserFolder/DeleteUser.cshtml]
+[E:/C sharp/UsersProject for Dot net/Pages/UserFolder/DeleteUser.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVXNlckZvbGRlclxEZWxldGVVc2VyLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/C sharp/Users/Pages/UserFolder/EditUser.cshtml]
+[E:/C sharp/UsersProject for Dot net/Pages/UserFolder/EditUser.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVXNlckZvbGRlclxFZGl0VXNlci5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/C sharp/Users/Pages/UserFolder/forgotPassword.cshtml]
+[E:/C sharp/UsersProject for Dot net/Pages/UserFolder/forgotPassword.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVXNlckZvbGRlclxmb3Jnb3RQYXNzd29yZC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/C sharp/Users/Pages/UserFolder/OtpVerification.cshtml]
+[E:/C sharp/UsersProject for Dot net/Pages/UserFolder/OtpVerification.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVXNlckZvbGRlclxPdHBWZXJpZmljYXRpb24uY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/C sharp/Users/Pages/UserFolder/UserDetails.cshtml]
+[E:/C sharp/UsersProject for Dot net/Pages/UserFolder/UserDetails.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVXNlckZvbGRlclxVc2VyRGV0YWlscy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/C sharp/Users/Pages/UserFolder/UserIndex.cshtml]
+[E:/C sharp/UsersProject for Dot net/Pages/UserFolder/UserIndex.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVXNlckZvbGRlclxVc2VySW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/C sharp/Users/Pages/_ViewImports.cshtml]
+[E:/C sharp/UsersProject for Dot net/Pages/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/C sharp/Users/Pages/_ViewStart.cshtml]
+[E:/C sharp/UsersProject for Dot net/Pages/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/C sharp/Users/Pages/Shared/_Layout.cshtml]
+[E:/C sharp/UsersProject for Dot net/Pages/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-9phxrbaind
