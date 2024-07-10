@@ -65,6 +65,34 @@ namespace UsersProject.Pages.UserFolder
                         }
                         isSuccess = Convert.ToBoolean(result[0]);
                         successMsg = Convert.ToString(result[1]);
+
+                        if (isSuccess)
+                        {
+                            TempData["isSuccess"] = true;
+                            TempData["SuccessMSG"] = "Operation Succesfull!";
+                            if (TempData["isAdmin"] != null && Convert.ToBoolean(TempData["isAdmin"]) == true)
+                            {
+                                TempData.Keep("isAdmin");
+                                return RedirectToPage("./UserIndex");
+                            }
+                            else
+                            {
+                                //TempData["UserName"] = result[3];
+                                var tempPassword = TempData["UserPassword"];
+                                TempData.Clear();
+                                TempData["isUser"] = true;
+                                TempData["UserId"] = result[2];
+                                TempData["UserName"] = result[3];
+                                TempData["UserPassword"] = tempPassword;
+                                return RedirectToPage("./UserDetails", new { id = result[2] });
+                            }
+                        }
+                        else
+                        {
+                            TempData["isSuccess"] = false;
+                            TempData["SuccessMSG"] = successMsg;
+                            return RedirectToPage("./CreateUsers");
+                        }
                     }
                     else
                     {
@@ -88,41 +116,42 @@ namespace UsersProject.Pages.UserFolder
                         isSuccess = Convert.ToBoolean(result[0]);
                         successMsg = Convert.ToString(result[1]);
 
-                    }
-
-                    if (isSuccess)
-                    {
-                        TempData["isSuccess"] = true;
-                        TempData["SuccessMSG"] = "Operation Succesfull!";
-                        if (TempData["isAdmin"] != null && Convert.ToBoolean(TempData["isAdmin"]) == true)
+                        if (isSuccess)
                         {
-                            TempData.Keep("isAdmin");
-                            return RedirectToPage("./UserIndex");
+                            TempData["isSuccess"] = true;
+                            TempData["SuccessMSG"] = "Operation Succesfull!";
+                            if (TempData["isAdmin"] != null && Convert.ToBoolean(TempData["isAdmin"]) == true)
+                            {
+                                TempData.Keep("isAdmin");
+                                return RedirectToPage("./UserIndex");
+                            }
+                            else
+                            {
+                                //TempData["UserName"] = result[3];
+                                var token = result[5].ToString();
+                                Response.Cookies.Append("jwt_token", token, new CookieOptions
+                                {
+                                    HttpOnly = false,
+                                    Secure = true,
+                                    Expires = DateTime.UtcNow.AddHours(1)
+                                });
+                                TempData.Clear();
+                                TempData["isUser"] = true;
+                                TempData["UserId"] = result[2];
+                                TempData["UserName"] = result[3];
+                                TempData["UserPassword"] = result[4];
+                                return RedirectToPage("./UserDetails", new { id = result[2] });
+                            }
                         }
                         else
                         {
-                            //TempData["UserName"] = result[3];
-                            var token = result[5].ToString();
-                            Response.Cookies.Append("jwt_token", token, new CookieOptions
-                            {
-                                HttpOnly = false,
-                                Secure = true,
-                                Expires = DateTime.UtcNow.AddHours(1)
-                            });
-                            TempData.Clear();
-                            TempData["isUser"] = true;
-                            TempData["UserId"] = result[2];
-                            TempData["UserName"] = result[3];
-                            TempData["UserPassword"] = result[4];
-                            return RedirectToPage("./UserDetails", new { id = result[2] });
+                            TempData["isSuccess"] = false;
+                            TempData["SuccessMSG"] = successMsg;
+                            return RedirectToPage("./CreateUsers");
                         }
+
                     }
-                    else
-                    {
-                        TempData["isSuccess"] = false;
-                        TempData["SuccessMSG"] = successMsg;
-                        return RedirectToPage("./CreateUsers");
-                    }
+
                 }
                 else if (otpVerificationInput == savedOtp && isResetPassword == "true")
                 {
