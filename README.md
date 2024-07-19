@@ -1,3 +1,8 @@
+## Additional Links
+
+- [Backend Repository](https://github.com/vishalj6/UserManagement-backend)
+  
+
 # Role-Based User Management System
 
 This is a Role-Based User Management System built with ASP.NET Core. It provides functionalities such as admin login, user login, password reset, user registration with OTP verification, user editing, user deletion, and JWT token-based authentication. 
